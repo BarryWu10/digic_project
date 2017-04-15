@@ -47,6 +47,7 @@ architecture behavioral of sobel_memory
 	signal o_column_counter: std_logic_vector(7 downto 0) := (others => '0');
 	
 	signal wait_brah: std_logic := '0';
+	signal o_valid_counter: std_logic_vector(9 downto 0);	--to prevents output to go off the image
 
 Begin
 	-----------------------------------------------
@@ -54,11 +55,18 @@ Begin
 	-----------------------------------------------
 	release_the_hounds: process(i_request)
 	begin
-		if(i_request == '1' and wait_brah == '0') then
+		if(i_request == '1' and wait_brah == '0' and to_integer(unsigned(o_valid_counter)) < (254*254)) then
 			top <= (to_integer(unsigned(o_row_counter)-1)) (to_integer(8 * (unsigned(o_column_counter)-1)) downto to_integer(8 * (unsigned(o_column_counter)+1)));
 			mid <= (to_integer(unsigned(o_row_counter))) (to_integer(8 * (unsigned(o_column_counter)-1)) downto to_integer(8 * (unsigned(o_column_counter)+1)));
 			bot <= (to_integer(unsigned(o_row_counter)+1)) (to_integer(8 * (unsigned(o_column_counter)-1)) downto to_integer(8 * (unsigned(o_column_counter)+1)));
 			wait_brah <= '1';
+			if(o_column_counter == "11111110") then
+				o_row_counter <= std_logic_vector(unsigned(i_row_counter)+1);
+				o_column_counter <= "00000001";
+			else
+				o_column_counter <= std_logic_vector(unsigned(i_column_counter)+1);
+			end if;
+			o_valid_counter <= std_logic_vector(unsigned(o_valid_counter)+1);
 		elsif(i_request == '0' and wait_brah == '1') then
 			wait_brah <= '0';
 		end if;
