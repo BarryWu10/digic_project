@@ -56,6 +56,7 @@ architecture Structural of sobel is
         port(i_clock   : in std_logic;                      --| Clock Input
              i_enable  : in std_logic;                      --| Input Enable
              i_reset   : in std_logic;                      --| Reset Input
+             i_request : in std_logic;                      --| Request Derivatives
              i_top     : in std_logic_vector (23 downto 0); --| Top pixel
                                                             --  neighbors
              i_mid     : in std_logic_vector (23 downto 0); --| Pixel with left
@@ -192,9 +193,13 @@ begin
                     if o_dbusy & o_ebusy & o_mbusy /= "000" then
                         state <= BUSY;
                         w_mode <= "11";
+                    end if;
                 when BUSY =>
                     if  o_dbusy & o_ebusy & o_mbusy = "000" then
                         state <= IDLE;
                         w_mode <= "10";
-
-
+                    end if;
+            end case;
+        end if;
+    end process;
+end Structural;
