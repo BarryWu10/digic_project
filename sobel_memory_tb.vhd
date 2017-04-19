@@ -300,14 +300,15 @@ Begin
 			end loop;
 		end loop;
 		--reads out data
-		for row in 0 to 2 loop
-			for column	in 0 to 2 loop
-				i_request <= '1';
-				wait for 5*clk_period;
-				i_request <= '0';
-				wait for 5*clk_period;
-			end loop;
-		end loop;
+		i_request <= '1';
+		wait for 5*clk_period;
+		i_request <= '0';
+		wait for 5*clk_period;
+		i_request <= '1';
+		wait for 5*clk_period;
+		i_request <= '0';
+		wait for 5*clk_period;
+
 		
 		wait for 20*clk_period;
 		
@@ -330,14 +331,11 @@ Begin
 			end loop;
 		end loop;
 		--reads out data
-		for row in 0 to 2 loop
-			for column	in 0 to 2 loop
-				i_request <= '1';
-				wait for 5*clk_period;
-				i_request <= '0';
-				wait for 5*clk_period;
-			end loop;
-		end loop;
+		i_request <= '1';
+		wait for 5*clk_period;
+		i_request <= '0';
+		wait for 5*clk_period;
+
 		
 		wait for 20*clk_period;
 		
@@ -360,14 +358,12 @@ Begin
 			end loop;
 		end loop;
 		--reads out data
-		for row in 0 to 2 loop
-			for column	in 0 to 2 loop
-				i_request <= '1';
-				wait for 5*clk_period;
-				i_request <= '0';
-				wait for 5*clk_period;
-			end loop;
-		end loop;
+
+		i_request <= '1';
+		wait for 5*clk_period;
+		i_request <= '0';
+		wait for 5*clk_period;
+
 		
 		wait for 20*clk_period;
 		
@@ -390,14 +386,10 @@ Begin
 			end loop;
 		end loop;
 		--reads out data
-		for row in 0 to 2 loop
-			for column	in 0 to 2 loop
-				i_request <= '1';
-				wait for 5*clk_period;
-				i_request <= '0';
-				wait for 5*clk_period;
-			end loop;
-		end loop;
+		i_request <= '1';
+		wait for 5*clk_period;
+		i_request <= '0';
+		wait for 5*clk_period;
 		
 		wait for 20*clk_period;
 		
@@ -420,14 +412,10 @@ Begin
 			end loop;
 		end loop;
 		--reads out data
-		for row in 0 to 2 loop
-			for column	in 0 to 2 loop
-				i_request <= '1';
-				wait for 5*clk_period;
-				i_request <= '0';
-				wait for 5*clk_period;
-			end loop;
-		end loop;
+		i_request <= '1';
+		wait for 5*clk_period;
+		i_request <= '0';
+		wait for 5*clk_period;
 		
 		wait for 20*clk_period;
 		
@@ -450,14 +438,10 @@ Begin
 			end loop;
 		end loop;
 		--reads out data
-		for row in 0 to 2 loop
-			for column	in 0 to 2 loop
-				i_request <= '1';
-				wait for 5*clk_period;
-				i_request <= '0';
-				wait for 5*clk_period;
-			end loop;
-		end loop;
+		i_request <= '1';
+		wait for 5*clk_period;
+		i_request <= '0';
+		wait for 5*clk_period;
 		
 		wait for 20*clk_period;
 		
@@ -481,14 +465,10 @@ Begin
 			end loop;
 		end loop;
 		--reads out data
-		for row in 0 to 2 loop
-			for column	in 0 to 2 loop
-				i_request <= '1';
-				wait for 5*clk_period;
-				i_request <= '0';
-				wait for 5*clk_period;
-			end loop;
-		end loop;
+		i_request <= '1';
+		wait for 5*clk_period;
+		i_request <= '0';
+		wait for 5*clk_period;
 		
 		wait for 20*clk_period;
 		
@@ -511,14 +491,10 @@ Begin
 			end loop;
 		end loop;
 		--reads out data
-		for row in 0 to 2 loop
-			for column	in 0 to 2 loop
-				i_request <= '1';
-				wait for 5*clk_period;
-				i_request <= '0';
-				wait for 5*clk_period;
-			end loop;
-		end loop;
+		i_request <= '1';
+		wait for 5*clk_period;
+		i_request <= '0';
+		wait for 5*clk_period;
 		
 		wait for 20*clk_period;
 		
@@ -541,14 +517,10 @@ Begin
 			end loop;
 		end loop;
 		--reads out data
-		for row in 0 to 2 loop
-			for column	in 0 to 2 loop
-				i_request <= '1';
-				wait for 5*clk_period;
-				i_request <= '0';
-				wait for 5*clk_period;
-			end loop;
-		end loop;
+		i_request <= '1';
+		wait for 5*clk_period;
+		i_request <= '0';
+		wait for 5*clk_period;
 		
 		wait for 20*clk_period;
 		
@@ -571,14 +543,10 @@ Begin
 			end loop;
 		end loop;
 		--reads out data
-		for row in 0 to 2 loop
-			for column	in 0 to 2 loop
-				i_request <= '1';
-				wait for 5*clk_period;
-				i_request <= '0';
-				wait for 5*clk_period;
-			end loop;
-		end loop;
+		i_request <= '1';
+		wait for 5*clk_period;
+		i_request <= '0';
+		wait for 5*clk_period;
 		
 		wait for 20*clk_period;
 		
@@ -601,14 +569,10 @@ Begin
 			end loop;
 		end loop;
 		--reads out data
-		for row in 0 to 2 loop
-			for column	in 0 to 2 loop
-				i_request <= '1';
-				wait for 5*clk_period;
-				i_request <= '0';
-				wait for 5*clk_period;
-			end loop;
-		end loop;
+		i_request <= '1';
+		wait for 5*clk_period;
+		i_request <= '0';
+		wait for 5*clk_period;
 		
 		wait for 20*clk_period;
 		
