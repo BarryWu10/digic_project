@@ -10,6 +10,10 @@ USE ieee.std_logic_1164.ALL;
 use IEEE.math_real.all;
 
 entity sobel_memory is
+	-----------------------------------------------
+	-- Generic: must be a number greater than 3
+	-----------------------------------------------
+	Generic(N: integer := 8);
 	port(
 		-----------------------------------------------
 		-- Inputs
@@ -37,53 +41,57 @@ architecture behavioral of sobel_memory
 	-- list of signals and constants
 	-----------------------------------------------		
 	--internal signals
-	type imagePixel array (255 downto 0) of std_logic_vector(256 * 8 downto 0);
+	--create the image array (n by n) with each index being a byte
+	type imagePixel array (n-1 downto 0, n -1 downto 0) of std_logic_vector(7 downto 0);
 	signal imageArray: imagePixel;
 	
-	--256 in binary
-	signal i_row_counter: std_logic_vector(7 downto 0) := (others => '0');
-	signal i_column_counter: std_logic_vector(7 downto 0) := (others => '0');
-	signal o_row_counter: std_logic_vector(7 downto 0) := (others => '0');
-	signal o_column_counter: std_logic_vector(7 downto 0) := (others => '0');
+	--counter 
+	--2**n is the max
+	signal i_row_counter: integer;
+	signal i_column_counter: integer;
+	signal o_row_counter: integer;
+	signal o_column_counter: integer;
 	
 	signal wait_brah: std_logic := '0';
-	signal o_valid_counter: std_logic_vector(9 downto 0);	--to prevents output to go off the image
+	signal all_zero: std_logic_vector(n-1 downto 0) := (others => '0');
+	signal all_ones: std_logic_vector(n-1 downto 0) := (others => '1');
 
 Begin
 	-----------------------------------------------
 	-- produce output
 	-----------------------------------------------
-	release_the_hounds: process(i_request)
+	release_the_hounds: process(i_request, wait_brah, i_clock)
 	begin
-		if(i_request == '1' and wait_brah == '0' and to_integer(unsigned(o_valid_counter)) < (254*254)) then
-			top <= (to_integer(unsigned(o_row_counter)-1)) (to_integer(8 * (unsigned(o_column_counter)-1)) downto to_integer(8 * (unsigned(o_column_counter)+1)));
-			mid <= (to_integer(unsigned(o_row_counter))) (to_integer(8 * (unsigned(o_column_counter)-1)) downto to_integer(8 * (unsigned(o_column_counter)+1)));
-			bot <= (to_integer(unsigned(o_row_counter)+1)) (to_integer(8 * (unsigned(o_column_counter)-1)) downto to_integer(8 * (unsigned(o_column_counter)+1)));
-			wait_brah <= '1';
-			if(o_column_counter == "11111110") then
-				o_row_counter <= std_logic_vector(unsigned(i_row_counter)+1);
-				o_column_counter <= "00000001";
-			else
-				o_column_counter <= std_logic_vector(unsigned(i_column_counter)+1);
+		if(rising_edge(i_clock)) then
+			if(i_request == '1' and wait_brah == '0' and o_valid_counter < n*n) then
+				top <= imageArray(o_row_counter - 1, o_column_counter - 1) & imageArray(o_row_counter - 1, o_column_counter) & imageArray(o_row_counter - 1, o_column_counter + 1);
+				mid <= imageArray(o_row_counter, o_column_counter - 1) & imageArray(o_row_counter, o_column_counter) & imageArray(o_row_counter, o_column_counter + 1);
+				bot <= imageArray(o_row_counter + 1, o_column_counter - 1) & imageArray(o_row_counter + 1, o_column_counter) & imageArray(o_row_counter + 1, o_column_counter + 1);
+				wait_brah <= '1';
+				if(o_column_counter == n-2) then
+					o_row_counter = o_row_counter + 1;
+					o_column_counter 1;
+				else
+					o_column_counter = o_column_counter + 1;
+				end if;
+			elsif(i_request == '0' and wait_brah == '1') then
+				wait_brah <= '0';
 			end if;
-			o_valid_counter <= std_logic_vector(unsigned(o_valid_counter)+1);
-		elsif(i_request == '0' and wait_brah == '1') then
-			wait_brah <= '0';
 		end if;
-	end process;
+	end process;-
 	
 	-----------------------------------------------
 	-- start spitting me some output
 	-----------------------------------------------
 	can_export: process(i_column_counter, i_row_counter)
 	begin
-		if(i_row_counter == 3) then
-			if(i_column_counter >= 1)then
+		if(i_row_counter == 2) then
+			if(i_column_counter >= 2)then
 				o_valid <= '1';
 			else
 				o_valid <= '0';
 			end if;
-		else if(i_row_counter > 3) then
+		else if(i_row_counter > 2) then
 			o_valid <= '1';
 		else
 			o_valid <= '0';
@@ -96,18 +104,18 @@ Begin
 	fill_Array: Process(i_valid, i_clock, i_reset)
 	begin
 		if (i_reset == '1') then
-			i_column_counter <= "00000000";
-			i_row_counter <= "00000000";
-			o_column_counter <= std_logic_vector(to_unsigned(1, 8));
-			o_row_counter <= std_logic_vector(to_unsigned(1, 8));
+			i_column_counter = 0;
+			i_row_counter = 0;
+			o_column_counter <= 1;
+			o_row_counter <= 1;
 		else if(rising_edge(i_clock)) then
 			if (i_valid == '1') then
 				imageArray(i_column_counter, i_row_counter) <= i_pixel;
-				if(i_column_counter == "11111111") then
-					i_row_counter <= std_logic_vector(unsigned(i_row_counter)+1);
-					i_column_counter <= "00000000";
+				if(i_column_counter == n-1 && i_column_counter < n) then
+					i_row_counter = i_row_counter + 1;
+					i_column_counter = 0;
 				else
-					i_column_counter <= std_logic_vector(unsigned(i_column_counter)+1);
+					i_column_counter = i_column_counter + 1;
 				end if;
 			end if;
 		end if;
@@ -118,7 +126,7 @@ Begin
 	-----------------------------------------------
 	check_Full: Process(i_column_counter, i_row_counter)
 	begin
-		if(i_column_counter == "11111111" and i_row_counter == "11111111") then
+		if(i_column_counter == n-1 and i_row_counter == n-1) then
 			isFull <= '1';
 		else
 			isFull <= '0';
