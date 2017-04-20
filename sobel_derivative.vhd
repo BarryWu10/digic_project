@@ -2,7 +2,7 @@ library ieee;
 
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
---use ieee.std_logic_unsigned.all;
+--use ieee.std_logic_signed.all;
 --use ieee.std_logic_arith.all;
 
 --| Sobel Derivative Module i/o
@@ -37,11 +37,10 @@ architecture Behavioral of sobel_derivative is
     type state_type is (HOLD, PROC);
     signal state     : state_type := HOLD;
     signal w_request : std_logic := '1';
-    signal D_NE_SW   : unsigned (7 downto 0) := (others => '0');
-    signal D_N_S     : unsigned (7 downto 0) := (others => '0');
-    signal D_E_W     : unsigned (7 downto 0) := (others => '0');
-    signal D_NW_SE   : unsigned (7 downto 0) := (others => '0');
-    signal testing   : unsigned (7 downto 0);
+    signal D_NE_SW   : signed (7 downto 0) := (others => '0');
+    signal D_N_S     : signed (7 downto 0) := (others => '0');
+    signal D_E_W     : signed (7 downto 0) := (others => '0');
+    signal D_NW_SE   : signed (7 downto 0) := (others => '0');
 
 begin
     o_D_NE_SW <= std_logic_vector(D_NE_SW);
@@ -53,6 +52,14 @@ begin
     deriv : process (i_clock, i_enable, i_reset, i_request, i_top, i_mid, i_bot)
     begin
         if i_reset = '1' then
+            D_NE_SW <= (others => '0');
+            D_N_S   <= (others => '0');
+            D_E_W   <= (others => '0');
+            D_NW_SE <= (others => '0');
+            o_valid <= '0';
+            w_request <= '1';
+            state <= HOLD;
+
         elsif (i_clock'event and i_clock='1') then
             case state is
                 when HOLD =>
@@ -62,35 +69,36 @@ begin
                         state <= PROC;
                         w_request <= '0';
 
-                        D_NE_SW <= unsigned(i_top(15 downto 8))
-                                   + shift_left(unsigned(i_top(7 downto 0)), 1)
-                                   + unsigned(i_mid(7 downto 0))
-                                   - unsigned(i_mid(23 downto 16))
-                                   - shift_left(unsigned(i_bot(23 downto 16)), 1)
-                                   - unsigned(i_bot(15 downto 8));
+                        D_NE_SW <= signed(i_top(15 downto 8))
+                                   + shift_left(signed(i_top(7 downto 0)), 1)
+                                   + signed(i_mid(7 downto 0))
+                                   - signed(i_mid(23 downto 16))
+                                   - shift_left(signed(i_bot(23 downto 16)), 1)
+                                   - signed(i_bot(15 downto 8));
 
-                        D_N_S   <= unsigned(i_top(23 downto 16))
-                                   + shift_left(unsigned(i_top(15 downto 8)), 1)
-                                   + unsigned(i_top(7 downto 0))
-                                   - unsigned(i_bot(23 downto 16))
-                                   - shift_left(unsigned(i_bot(15 downto 8)), 1)
-                                   - unsigned(i_bot(7 downto 0));
+                        D_N_S   <= signed(i_top(23 downto 16))
+                                   + shift_left(signed(i_top(15 downto 8)), 1)
+                                   + signed(i_top(7 downto 0))
+                                   - signed(i_bot(23 downto 16))
+                                   - shift_left(signed(i_bot(15 downto 8)), 1)
+                                   - signed(i_bot(7 downto 0));
 
-                        D_E_W   <= unsigned(i_top(7 downto 0))
-                                   + shift_left(unsigned(i_mid(7 downto 0)), 1)
-                                   + unsigned(i_bot(7 downto 0))
-                                   - unsigned(i_top(23 downto 16))
-                                   - shift_left(unsigned(i_mid(23 downto 16)), 1)
-                                   - unsigned(i_bot(23 downto 16));
+                        D_E_W   <= signed(i_top(7 downto 0))
+                                   + shift_left(signed(i_mid(7 downto 0)), 1)
+                                   + signed(i_bot(7 downto 0))
+                                   - signed(i_top(23 downto 16))
+                                   - shift_left(signed(i_mid(23 downto 16)), 1)
+                                   - signed(i_bot(23 downto 16));
 
-                        D_NW_SE <= unsigned(i_mid(23 downto 16))
-                                   + shift_left(unsigned(i_top(23 downto 16)), 1)
-                                   + unsigned(i_top(15 downto 8))
-                                   - unsigned(i_bot(15 downto 8))
-                                   - shift_left(unsigned(i_bot(7 downto 0)), 1)
-                                   - unsigned(i_mid(7 downto 0));
+                        D_NW_SE <= signed(i_mid(23 downto 16))
+                                   + shift_left(signed(i_top(23 downto 16)), 1)
+                                   + signed(i_top(15 downto 8))
+                                   - signed(i_bot(15 downto 8))
+                                   - shift_left(signed(i_bot(7 downto 0)), 1)
+                                   - signed(i_mid(7 downto 0));
                     else
                         o_dbusy <= '0';
+                        w_request <= '1';
                     end if;
                 when PROC =>
                     if i_request = '1' then

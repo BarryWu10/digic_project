@@ -8,6 +8,7 @@ use ieee.std_logic_arith.all;
 
 --| Sobel Module i/o
 entity sobel is
+    generic(mem_size : integer := 8);
     port (i_clock : in std_logic;
           i_valid : in std_logic;
           i_pixel : in std_logic_vector (7 downto 0);
@@ -23,6 +24,7 @@ architecture Structural of sobel is
 
     --| Sobel memory unit i/o
     component sobel_memory
+        generic(N: integer := 8);
         port( i_clock   : in std_logic;                         --| Clock Input
               i_valid   : in std_logic;                         --| Valid Input
               i_pixel   : in std_logic_vector (7 downto 0);     --| Pixel Input
@@ -122,6 +124,7 @@ architecture Structural of sobel is
 begin
     --| Memory Module Port Map
     memory : sobel_memory
+        generic map (N => mem_size);
         port map(i_clock   => w_clock,
                  i_valid   => w_valid,
                  i_pixel   => w_pixel,
