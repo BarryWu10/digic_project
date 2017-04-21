@@ -93,5 +93,8 @@ begin
                     null;
             end case;
         end if;
+    max  := 0;
+    pos  := 0;
+    perp :=0;   
     end process;
 end Behavioral;
