@@ -10,10 +10,10 @@ entity sobel_eval is
     port(i_clock   : in std_logic;                      --| Clock Input
          i_enable  : in std_logic;                      --| Input Enable
          i_reset   : in std_logic;                      --| Reset Input
-         i_D_NE_SW : in std_logic_vector (7 downto 0);  --| NE SW Derivative
-         i_D_N_S   : in std_logic_vector (7 downto 0);  --| N S Derivative
-         i_D_E_W   : in std_logic_vector (7 downto 0);  --| E W Derivative
-         i_D_NW_SE : in std_logic_vector (7 downto 0);  --| NW SE Derivative
+         i_D_NE_SW : in std_logic_vector (11 downto 0);  --| NE SW Derivative
+         i_D_N_S   : in std_logic_vector (11 downto 0);  --| N S Derivative
+         i_D_E_W   : in std_logic_vector (11 downto 0);  --| E W Derivative
+         i_D_NW_SE : in std_logic_vector (11 downto 0);  --| NW SE Derivative
          o_ebusy   : out std_logic;                     --| Busy Signal
          o_dir     : out std_logic_vector (2 downto 0); --| Direction code
                                                         --  of pixel
@@ -35,10 +35,10 @@ architecture Behavioral of sobel_eval is
     signal w_clock   : std_logic;
     signal w_enable  : std_logic;
     signal w_reset   : std_logic;
-    signal w_D_NE_SW : signed(7 downto 0);
-    signal w_D_N_S   : signed(7 downto 0);
-    signal w_D_E_W   : signed(7 downto 0);
-    signal w_D_NW_SE : signed(7 downto 0);
+    signal w_D_NE_SW : signed(11 downto 0);
+    signal w_D_N_S   : signed(11 downto 0);
+    signal w_D_E_W   : signed(11 downto 0);
+    signal w_D_NW_SE : signed(11 downto 0);
 begin
     o_ebusy <= w_ebusy;
     o_dir   <= w_dir;

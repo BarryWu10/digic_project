@@ -38,10 +38,10 @@ architecture Structural of sobel_demo is
                                                             --  neighbors
              o_dbusy   : out std_logic;                     --| Derivative busy
                                                             --  signal
-             o_D_NE_SW : out std_logic_vector (7 downto 0); --| NE SW Derivative
-             o_D_N_S   : out std_logic_vector (7 downto 0); --| N S Derivative
-             o_D_E_W   : out std_logic_vector (7 downto 0); --| E W Derivative
-             o_D_NW_SE : out std_logic_vector (7 downto 0); --| NW SE Derivative
+             o_D_NE_SW : out std_logic_vector (11 downto 0); --| NE SW Derivative
+             o_D_N_S   : out std_logic_vector (11 downto 0); --| N S Derivative
+             o_D_E_W   : out std_logic_vector (11 downto 0); --| E W Derivative
+             o_D_NW_SE : out std_logic_vector (11 downto 0); --| NW SE Derivative
              o_valid   : out std_logic;                     --| Valid Derivative
              o_request : out std_logic                      --| Memory request
             );                                              --  signal
@@ -52,10 +52,10 @@ architecture Structural of sobel_demo is
         port(i_clock   : in std_logic;                      --| Clock Input
              i_enable  : in std_logic;                      --| Input Enable
              i_reset   : in std_logic;                      --| Reset Input
-             i_D_NE_SW : in std_logic_vector (7 downto 0);  --| NE SW Derivative
-             i_D_N_S   : in std_logic_vector (7 downto 0);  --| N S Derivative
-             i_D_E_W   : in std_logic_vector (7 downto 0);  --| E W Derivative
-             i_D_NW_SE : in std_logic_vector (7 downto 0);  --| NW SE Derivative
+             i_D_NE_SW : in std_logic_vector (11 downto 0);  --| NE SW Derivative
+             i_D_N_S   : in std_logic_vector (11 downto 0);  --| N S Derivative
+             i_D_E_W   : in std_logic_vector (11 downto 0);  --| E W Derivative
+             i_D_NW_SE : in std_logic_vector (11 downto 0);  --| NW SE Derivative
              o_ebusy   : out std_logic;                     --| Busy Signal
              o_dir     : out std_logic_vector (2 downto 0); --| Direction code
                                                             --  of pixel
@@ -87,10 +87,10 @@ architecture Structural of sobel_demo is
     signal w_top     : std_logic_vector (23 downto 0);
     signal w_mid     : std_logic_vector (23 downto 0);
     signal w_bot     : std_logic_vector (23 downto 0);
-    signal w_D_NE_SW : std_logic_vector (7 downto 0);
-    signal w_D_N_S   : std_logic_vector (7 downto 0);
-    signal w_D_E_W   : std_logic_vector (7 downto 0);
-    signal w_D_NW_SE : std_logic_vector (7 downto 0);
+    signal w_D_NE_SW : std_logic_vector (11 downto 0);
+    signal w_D_N_S   : std_logic_vector (11 downto 0);
+    signal w_D_E_W   : std_logic_vector (11 downto 0);
+    signal w_D_NW_SE : std_logic_vector (11 downto 0);
 
 begin
 

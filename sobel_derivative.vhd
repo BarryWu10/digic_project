@@ -23,10 +23,10 @@ entity sobel_derivative is
                                                         --  neighbors
          o_dbusy   : out std_logic;                     --| Derivative busy
                                                         --  signal
-         o_D_NE_SW : out std_logic_vector (7 downto 0); --| NE SW Derivative
-         o_D_N_S   : out std_logic_vector (7 downto 0); --| N S Derivative
-         o_D_E_W   : out std_logic_vector (7 downto 0); --| E W Derivative
-         o_D_NW_SE : out std_logic_vector (7 downto 0); --| NW SE Derivative
+         o_D_NE_SW : out std_logic_vector (11 downto 0); --| NE SW Derivative
+         o_D_N_S   : out std_logic_vector (11 downto 0); --| N S Derivative
+         o_D_E_W   : out std_logic_vector (11 downto 0); --| E W Derivative
+         o_D_NW_SE : out std_logic_vector (11 downto 0); --| NW SE Derivative
          o_valid   : out std_logic;                     --| Valid Derivative
          o_request : out std_logic                      --| Memory request
         );                                              --  signal
@@ -37,10 +37,10 @@ architecture Behavioral of sobel_derivative is
     type state_type is (HOLD, PROC);
     signal state     : state_type := HOLD;
     signal w_request : std_logic := '1';
-    signal D_NE_SW   : signed (7 downto 0) := (others => '0');
-    signal D_N_S     : signed (7 downto 0) := (others => '0');
-    signal D_E_W     : signed (7 downto 0) := (others => '0');
-    signal D_NW_SE   : signed (7 downto 0) := (others => '0');
+    signal D_NE_SW   : signed (11 downto 0) := (others => '0');
+    signal D_N_S     : signed (11 downto 0) := (others => '0');
+    signal D_E_W     : signed (11 downto 0) := (others => '0');
+    signal D_NW_SE   : signed (11 downto 0) := (others => '0');
 
 begin
     o_D_NE_SW <= std_logic_vector(D_NE_SW);
@@ -69,33 +69,33 @@ begin
                         state <= PROC;
                         w_request <= '0';
 
-                        D_NE_SW <= signed(i_top(15 downto 8))
-                                   + shift_left(signed(i_top(7 downto 0)), 1)
-                                   + signed(i_mid(7 downto 0))
-                                   - signed(i_mid(23 downto 16))
-                                   - shift_left(signed(i_bot(23 downto 16)), 1)
-                                   - signed(i_bot(15 downto 8));
+                        D_NE_SW <= signed("0000" & i_top(15 downto 8))
+                                   + shift_left(signed("0000" & i_top(7 downto 0)), 1)
+                                   + signed("0000" & i_mid(7 downto 0))
+                                   - signed("0000" & i_mid(23 downto 16))
+                                   - shift_left(signed("0000" & i_bot(23 downto 16)), 1)
+                                   - signed("0000" & i_bot(15 downto 8));
 
-                        D_N_S   <= signed(i_top(23 downto 16))
-                                   + shift_left(signed(i_top(15 downto 8)), 1)
-                                   + signed(i_top(7 downto 0))
-                                   - signed(i_bot(23 downto 16))
-                                   - shift_left(signed(i_bot(15 downto 8)), 1)
-                                   - signed(i_bot(7 downto 0));
+                        D_N_S   <= signed("0000" & i_top(23 downto 16))
+                                   + shift_left(signed("0000" & i_top(15 downto 8)), 1)
+                                   + signed("0000" & i_top(7 downto 0))
+                                   - signed("0000" & i_bot(23 downto 16))
+                                   - shift_left(signed("0000" & i_bot(15 downto 8)), 1)
+                                   - signed("0000" & i_bot(7 downto 0));
 
-                        D_E_W   <= signed(i_top(7 downto 0))
-                                   + shift_left(signed(i_mid(7 downto 0)), 1)
-                                   + signed(i_bot(7 downto 0))
-                                   - signed(i_top(23 downto 16))
-                                   - shift_left(signed(i_mid(23 downto 16)), 1)
-                                   - signed(i_bot(23 downto 16));
+                        D_E_W   <= signed("0000" & i_top(7 downto 0))
+                                   + shift_left(signed("0000" & i_mid(7 downto 0)), 1)
+                                   + signed("0000" & i_bot(7 downto 0))
+                                   - signed("0000" & i_top(23 downto 16))
+                                   - shift_left(signed("0000" & i_mid(23 downto 16)), 1)
+                                   - signed("0000" & i_bot(23 downto 16));
 
-                        D_NW_SE <= signed(i_mid(23 downto 16))
-                                   + shift_left(signed(i_top(23 downto 16)), 1)
-                                   + signed(i_top(15 downto 8))
-                                   - signed(i_bot(15 downto 8))
-                                   - shift_left(signed(i_bot(7 downto 0)), 1)
-                                   - signed(i_mid(7 downto 0));
+                        D_NW_SE <= signed("0000" & i_mid(23 downto 16))
+                                   + shift_left(signed("0000" & i_top(23 downto 16)), 1)
+                                   + signed("0000" & i_top(15 downto 8))
+                                   - signed("0000" & i_bot(15 downto 8))
+                                   - shift_left(signed("0000" & i_bot(7 downto 0)), 1)
+                                   - signed("0000" & i_mid(7 downto 0));
                     else
                         o_dbusy <= '0';
                         w_request <= '1';
