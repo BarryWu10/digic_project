@@ -1,0 +1,23 @@
+A 5 u mgc_sheet 58fa06a11453.03.81.15.9a.4d.00.04.ae 1 2 15 0
+V v 1 4 58fa06a11453.03.81.15.9a.4d.01.04.ae
+F f 1 "sheet8.ssht_1"
+F f 1 "sheet8.sgfx_1"
+F o 0 
+F o 0 
+O 1
+P "eddm__stream_to_use" "eddm__propl_dstream"
+R csduv 0 "/home/cxr3473/digicdesign/project/digic_project/demo/sobel_demo/schematic" 15 mgc_schematic 58fa06a11450.03.81.15.9a.4d.00.04.ae 58fa069a3092.03.81.15.9a.4d.00.04.ae
+R csduv 1 "$MGC_IC_GENERIC_LIB/offpag.in/part" 1 Eddm_part 5bc451019000.0d.00.02.ed.d4.00.00.00 3890e8888efc.03.86.56.31.70.02.3a.eb
+R csduv 2 "$MGC_IC_GENERIC_LIB/offpag.in/offpag.in" 1 mgc_symbol 5e8fb81f8000.0d.00.02.ed.d4.00.00.00 3890e8888efc.03.86.56.31.70.03.3a.eb
+R csduv 3 "$MGC_IC_GENERIC_LIB/offpag.out/part" 1 Eddm_part 5bc454e33000.0d.00.02.ed.d4.00.00.00 3890e8888efb.03.86.56.31.70.04.3a.eb
+R csduv 4 "$MGC_IC_GENERIC_LIB/offpag.out/offpag.out" 1 mgc_symbol 5e8fb82cd000.0d.00.02.ed.d4.00.00.00 3890e8888efc.03.86.56.31.70.00.3a.eb
+R csduv 5 "$ADK/parts/xnor2/part" 1 Eddm_part 411d1bc6ef8c.03.93.22.46.d8.00.24.b5 43349f1b0f4f.03.93.22.46.d8.00.02.fa
+R csduv 6 "$ADK/parts/xnor2/xnor2" 1 mgc_symbol 37c5aee7c870.03.93.22.21.a7.00.2d.3e 43349f1b0f4e.03.93.22.46.d8.04.02.fa
+R csduv 7 "$ADK/parts/xor2/part" 1 Eddm_part 411d1c47707e.03.93.22.46.d8.00.24.b5 43349f1b0f4d.03.93.22.46.d8.04.02.fa
+R csduv 8 "$ADK/parts/xor2/xor2" 1 mgc_symbol 37c5af03d1d9.03.93.22.21.a7.00.2d.3e 43349f1b0f4d.03.93.22.46.d8.01.02.fa
+R csduv 9 "$ADK/parts/dffr/part" 1 Eddm_part 411be9860c35.03.93.22.46.d8.00.14.dc 43349f1b0f70.03.93.22.46.d8.06.02.fa
+R csduv 10 "$ADK/parts/dffr/dffr" 1 mgc_symbol 37e17a299965.03.93.22.21.a7.00.2b.ed 43349f1b0f70.03.93.22.46.d8.03.02.fa
+R csduv 11 "$ADK/parts/inv01/part" 1 Eddm_part 411d0b78f3c4.03.93.22.46.d8.00.24.b5 43349f1b0f6b.03.93.22.46.d8.05.02.fa
+R csduv 12 "$ADK/parts/inv01/inv01" 1 mgc_symbol 37c5aadeee9e.03.93.22.21.a7.00.2d.3e 43349f1b0f6b.03.93.22.46.d8.02.02.fa
+R csduv 13 "$ADK/parts/mux21/part" 1 Eddm_part 411d0fd86fee.03.93.22.46.d8.00.24.b5 43349f1b0f64.03.93.22.46.d8.04.02.fa
+R csduv 14 "$ADK/parts/mux21/mux21" 1 mgc_symbol 37c5b74354d3.03.93.22.21.a7.00.34.50 43349f1b0f64.03.93.22.46.d8.01.02.fa

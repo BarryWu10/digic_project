@@ -1,0 +1,42 @@
+//
+//  Rule file generated on Fri Apr 21 10:27:19 EDT 2017
+//     by Calibre Interactive - PEX (v2013.4_26.18)
+//
+//      *** PLEASE DO NOT MODIFY THIS FILE ***
+//
+//
+
+LAYOUT PATH  "/home/cxr3473/digicdesign/project/digic_project/demo/sobel_demo_layout.gds"
+LAYOUT PRIMARY "sobel_layout"
+LAYOUT SYSTEM GDSII
+
+SOURCE PATH "sobel_layout.src.net"
+SOURCE PRIMARY "sobel_layout"
+SOURCE SYSTEM SPICE
+
+MASK SVDB DIRECTORY "svdb" QUERY XCALIBRE
+
+LVS REPORT "sobel_layout.lvs.report"
+
+PEX NETLIST "/home/cxr3473/digicdesign/project/digic_project/demo/sobel_demo/pex/sobel_layout.pex.netlist" ELDO 1 LAYOUTNAMES 
+PEX REDUCE ANALOG NO
+PEX NETLIST UPPERCASE KEYWORDS NO
+PEX NETLIST VIRTUAL CONNECT NO
+PEX NETLIST NOXREF NET NAMES YES
+PEX NETLIST MUTUAL RESISTANCE YES
+LVS REPORT OPTION NONE
+LVS FILTER UNUSED OPTION NONE SOURCE
+LVS FILTER UNUSED OPTION NONE LAYOUT
+
+LVS RECOGNIZE GATES ALL
+
+
+
+VIRTUAL CONNECT COLON NO
+VIRTUAL CONNECT REPORT NO
+
+DRC ICSTATION YES
+
+
+INCLUDE "/tools/mentor/adk/technology/ic/process/tsmc018.calibre.rules"
+

@@ -1,0 +1,12 @@
+A 5 u Eddm_part 58fa069a0f8d.03.81.15.9a.4d.00.04.ae 2 2 2 0
+V v 1 1 58fa069a0f8e.03.81.15.9a.4d.00.04.ae
+F f 1 "part.part_1"
+V v 2 1 58fa069b5291.03.81.15.9a.4d.00.04.ae
+F f 2 "part.part_2"
+O 2
+P "eddm__stream_to_use" "eddm__propl_dstream"
+R csduv 0 "/home/cxr3473/digicdesign/project/digic_project/demo/sobel_demo/sobel_demo" 1 mgc_symbol 58fa0696d248.03.81.15.9a.4d.01.04.ae 58fa0696d248.03.81.15.9a.4d.00.04.ae
+R csduv 1 "/home/cxr3473/digicdesign/project/digic_project/demo/sobel_demo/schematic" 1 mgc_schematic 58fa069a3093.03.81.15.9a.4d.00.04.ae 58fa069a3092.03.81.15.9a.4d.00.04.ae
+O 1
+P "eddm__stream_to_use" "eddm__propl_dstream"
+R csduv 0 "/home/cxr3473/digicdesign/project/digic_project/demo/sobel_demo/sobel_demo" 1 mgc_symbol 58fa0696d248.03.81.15.9a.4d.01.04.ae 58fa0696d248.03.81.15.9a.4d.00.04.ae

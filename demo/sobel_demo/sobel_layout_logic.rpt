@@ -1,0 +1,22 @@
+ Logic loading report
+ ====================
+
+ Top level Layout cell : sobel_layout
+ Eddm Logic source : /home/cxr3473/digicdesign/project/digic_project/demo/sobel_demo/sobel_demo_layout
+
+
+*** Existing cell /home/cxr3473/digicdesign/project/digic_project/demo/sobel_demo/sobel_layout
+
+
+   Single pin nets
+   ---------------
+   $dummy[0]
+   $dummy[1]
+   $dummy[4]
+   $dummy[5]
+   $dummy[6]
+   $dummy[7]
+   $dummy[8]
+   $dummy[9]
+   $dummy[2]
+   $dummy[3]

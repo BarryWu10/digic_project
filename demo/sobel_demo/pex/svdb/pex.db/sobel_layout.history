@@ -1,0 +1,8 @@
+//OK 
+//NUMBER_OF_HEADER_LINES: 6
+//VERSION: 1
+//TOKEN_DELIMITER: "
+//TOKEN_SEPARATOR: " "
+//FORMAT: "time" "calibre version" "command line"
+"Fri Apr 21 10:27:22 2017 " "v2013.4_26.18" "-xrc -pdb -rc -turbo 1 /home/cxr3473/digicdesign/project/digic_project/demo/sobel_demo/pex/_tsmc018.calibre.rules_"
+"Fri Apr 21 10:27:42 2017 " "v2013.4_26.18" "-xrc -fmt -all /home/cxr3473/digicdesign/project/digic_project/demo/sobel_demo/pex/_tsmc018.calibre.rules_"

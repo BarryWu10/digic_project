@@ -1,0 +1,9 @@
+# Automagically generated file: Please do not edit!
+lvs_ExtfVersion 3
+lvs_ExtRunTimes 1492784840 1492784841
+lvs_ExtOutFile RUNDIR /home/cxr3473/digicdesign/project/digic_project/demo/sobel_demo/pex
+lvs_ExtOutFile RULES_FILE /home/cxr3473/digicdesign/project/digic_project/demo/sobel_demo/pex/_tsmc018.calibre.rules_
+lvs_ExtInfoExtSummary {0 0 0 0 0 0 0 0 0 0 0}
+lvs_ExtInfoDfmSummary {0}
+lvs_ExtOutFile LAYOUT_NETLIST svdb/sobel_layout.sp
+lvs_ExtOutFile EXTRACTION_REPORT sobel_layout.lvs.report.ext

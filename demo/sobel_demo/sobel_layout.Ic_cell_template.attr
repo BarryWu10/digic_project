@@ -1,0 +1,45 @@
+A 5 u Ic_cell_template 58fa07781e3c.03.81.15.9a.4d.00.0e.34 1 4 41 0
+V v 1 2 58fa137c3f9c.03.81.15.9a.4d.00.0e.34
+F f 1 "sobel_layout.iccel_1"
+F o 0 
+O 1
+R csduv 1 "$ADK/technology/ic/process/tsmc018" 1 Ic_lib_template 43349e4fe097.03.93.22.46.d8.00.02.ea 43349f1b0fb1.03.93.22.46.d8.06.02.fa
+R csduv 2 "$ADK/technology/ic/process/tsmc018" 1 Ic_persist_process 43348e50e208.03.93.22.46.d8.00.6c.be 43349f1b0fb4.03.93.22.46.d8.06.02.fa
+R csduv 3 "/home/cxr3473/digicdesign/project/digic_project/demo/sobel_demo/sobel_demo_layout" 2 Eddm_design_viewpoint 58fa077bbd0f.03.81.15.9a.4d.00.0e.34 58fa06cf31bb.03.81.15.9a.4d.00.79.7a
+R csduv 4 "$ADK/technology/ic/process/tsmc018/xnor2" 1 Ic_cell_template 4334787a67b5.03.93.22.46.d8.00.6b.76 43349f1b0fa5.03.93.22.46.d8.05.02.fa
+R csduv 5 "$ADK/technology/ic/process/tsmc018/nand03" 1 Ic_cell_template 4334783680b9.03.93.22.46.d8.00.6b.76 43349f1b0faa.03.93.22.46.d8.06.02.fa
+R csduv 6 "$ADK/technology/ic/process/tsmc018/oai21" 1 Ic_cell_template 4334784905ec.03.93.22.46.d8.00.6b.76 43349f1b0fa9.03.93.22.46.d8.02.02.fa
+R csduv 7 "$ADK/technology/ic/process/tsmc018/aoi32" 1 Ic_cell_template 433477f17089.03.93.22.46.d8.00.6b.76 43349f1b0fb0.03.93.22.46.d8.00.02.fa
+R csduv 8 "$ADK/technology/ic/process/tsmc018/nor02ii" 1 Ic_cell_template 433482ddc26d.03.93.22.46.d8.00.6c.be 43349f1b0faa.03.93.22.46.d8.00.02.fa
+R csduv 9 "$ADK/technology/ic/process/tsmc018/and03" 1 Ic_cell_template 433477e1007d.03.93.22.46.d8.00.6b.76 43349f1b0fb1.03.93.22.46.d8.03.02.fa
+R csduv 10 "$ADK/technology/ic/process/tsmc018/inv01" 1 Ic_cell_template 4334781ab2e7.03.93.22.46.d8.00.6b.76 43349f1b0fad.03.93.22.46.d8.00.02.fa
+R csduv 11 "$ADK/technology/ic/process/tsmc018/aoi21" 1 Ic_cell_template 433477ea83fa.03.93.22.46.d8.00.6b.76 43349f1b0fb0.03.93.22.46.d8.04.02.fa
+R csduv 12 "$ADK/technology/ic/process/tsmc018/nand02" 1 Ic_cell_template 4334783372bf.03.93.22.46.d8.00.6b.76 43349f1b0fab.03.93.22.46.d8.01.02.fa
+R csduv 13 "$ADK/technology/ic/process/tsmc018/mux21" 1 Ic_cell_template 4334782fce30.03.93.22.46.d8.00.6b.76 43349f1b0fab.03.93.22.46.d8.03.02.fa
+R csduv 14 "$ADK/technology/ic/process/tsmc018/aoi22" 1 Ic_cell_template 433477ec5736.03.93.22.46.d8.00.6b.76 43349f1b0fb0.03.93.22.46.d8.03.02.fa
+R csduv 15 "$ADK/technology/ic/process/tsmc018/or02" 1 Ic_cell_template 4334785fc272.03.93.22.46.d8.00.6b.76 43349f1b0fa7.03.93.22.46.d8.03.02.fa
+R csduv 16 "$ADK/technology/ic/process/tsmc018/nor03" 1 Ic_cell_template 433478422163.03.93.22.46.d8.00.6b.76 43349f1b0fa9.03.93.22.46.d8.06.02.fa
+R csduv 17 "$ADK/technology/ic/process/tsmc018/dff" 1 Ic_cell_template 4334780a42ce.03.93.22.46.d8.00.6b.76 43349f1b0fae.03.93.22.46.d8.01.02.fa
+R csduv 18 "$ADK/technology/ic/process/tsmc018/and02" 1 Ic_cell_template 433477df9182.03.93.22.46.d8.00.6b.76 43349f1b0fb1.03.93.22.46.d8.04.02.fa
+R csduv 19 "$ADK/technology/ic/process/tsmc018/dffr" 1 Ic_cell_template 4334780c77eb.03.93.22.46.d8.00.6b.76 43349f1b0fae.03.93.22.46.d8.00.02.fa
+R csduv 20 "$ADK/technology/ic/process/tsmc018/dffs_ni" 1 Ic_cell_template 433478110af6.03.93.22.46.d8.00.6b.76 43349f1b0fad.03.93.22.46.d8.05.02.fa
+R csduv 21 "$ADK/technology/ic/process/tsmc018/mux21_ni" 1 Ic_cell_template 43347831a65f.03.93.22.46.d8.00.6b.76 43349f1b0fab.03.93.22.46.d8.02.02.fa
+R csduv 22 "$ADK/technology/ic/process/tsmc018/xor2" 1 Ic_cell_template 4334787da140.03.93.22.46.d8.00.6b.76 43349f1b0fa5.03.93.22.46.d8.03.02.fa
+R csduv 23 "$ADK/technology/ic/process/tsmc018/oai22" 1 Ic_cell_template 4334784ad08f.03.93.22.46.d8.00.6b.76 43349f1b0fa9.03.93.22.46.d8.01.02.fa
+R csduv 24 "$ADK/technology/ic/process/tsmc018/and04" 1 Ic_cell_template 433477e2393d.03.93.22.46.d8.00.6b.76 43349f1b0fb1.03.93.22.46.d8.02.02.fa
+R csduv 25 "$ADK/technology/ic/process/tsmc018/nand04" 1 Ic_cell_template 4334783a2814.03.93.22.46.d8.00.6b.76 43349f1b0faa.03.93.22.46.d8.04.02.fa
+R csduv 26 "$ADK/technology/ic/process/tsmc018/aoi221" 1 Ic_cell_template 433477ee3192.03.93.22.46.d8.00.6b.76 43349f1b0fb0.03.93.22.46.d8.02.02.fa
+R csduv 27 "$ADK/technology/ic/process/tsmc018/aoi33" 1 Ic_cell_template 433477f673f0.03.93.22.46.d8.00.6b.76 43349f1b0faf.03.93.22.46.d8.04.02.fa
+R csduv 28 "$ADK/technology/ic/process/tsmc018/oai321" 1 Ic_cell_template 43347851bcf7.03.93.22.46.d8.00.6b.76 43349f1b0fa8.03.93.22.46.d8.04.02.fa
+R csduv 29 "$ADK/technology/ic/process/tsmc018/buf02" 1 Ic_cell_template 433478013210.03.93.22.46.d8.00.6b.76 43349f1b0fae.03.93.22.46.d8.06.02.fa
+R csduv 30 "$ADK/technology/ic/process/tsmc018/ao21" 1 Ic_cell_template 433477e3a2b6.03.93.22.46.d8.00.6b.76 43349f1b0fb1.03.93.22.46.d8.01.02.fa
+R csduv 31 "$ADK/technology/ic/process/tsmc018/aoi222" 1 Ic_cell_template 433477ef85a7.03.93.22.46.d8.00.6b.76 43349f1b0fb0.03.93.22.46.d8.01.02.fa
+R csduv 32 "$ADK/technology/ic/process/tsmc018/ao22" 1 Ic_cell_template 433477e5855e.03.93.22.46.d8.00.6b.76 43349f1b0fb1.03.93.22.46.d8.00.02.fa
+R csduv 33 "$ADK/technology/ic/process/tsmc018/nor04" 1 Ic_cell_template 43347845be9c.03.93.22.46.d8.00.6b.76 43349f1b0fa9.03.93.22.46.d8.04.02.fa
+R csduv 34 "$ADK/technology/ic/process/tsmc018/nor02" 1 Ic_cell_template 4334783d4432.03.93.22.46.d8.00.6b.76 43349f1b0faa.03.93.22.46.d8.02.02.fa
+R csduv 35 "$ADK/technology/ic/process/tsmc018/latchr" 1 Ic_cell_template 43347827286a.03.93.22.46.d8.00.6b.76 43349f1b0fac.03.93.22.46.d8.00.02.fa
+R csduv 36 "$ADK/technology/ic/process/tsmc018_via/via" 1 Ic_cell_template 40dcbec25381.03.93.22.46.d8.00.6c.38 43349f1b0e13.03.93.22.46.d8.04.02.fa
+R csduv 37 "$ADK/technology/ic/process/tsmc018_via/via2" 1 Ic_cell_template 40dcc0f9c5e7.03.93.22.46.d8.00.6c.f8 43349f1b0e13.03.93.22.46.d8.05.02.fa
+R csduv 38 "$ADK/technology/ic/process/tsmc018_via/via3" 1 Ic_cell_template 40dcc1381b6f.03.93.22.46.d8.00.6c.f8 43349f1b0e14.03.93.22.46.d8.00.02.fa
+R csduv 39 "$ADK/technology/ic/process/tsmc018_via/via4" 1 Ic_cell_template 40dcc1b07a1c.03.93.22.46.d8.00.6c.f8 43349f1b0e14.03.93.22.46.d8.01.02.fa
+R csdui 40 "$ADK/technology/ic/process/tsmc018.rules" 0 Mgc_file 43349f1b0e3a.03.93.22.46.d8.01.02.fa

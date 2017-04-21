@@ -1,0 +1,6 @@
+A 5 u mgc_symbol 58fa0696d248.03.81.15.9a.4d.00.04.ae 1 2 1 0
+V v 1 2 58fa0696d248.03.81.15.9a.4d.01.04.ae
+F f 1 "sobel_demo.smbl_1"
+F o 0 
+O 1
+R csduv 0 "/home/cxr3473/digicdesign/project/digic_project/demo/sobel_demo/part" 1 Eddm_part 58fa069a0f8e.03.81.15.9a.4d.00.04.ae 58fa069a0f8d.03.81.15.9a.4d.00.04.ae
