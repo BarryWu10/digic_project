@@ -277,166 +277,168 @@ Begin
         -----------------------------------------------
         -- test image block 0
         -----------------------------------------------
-        wait for 5*clk_period;
+
         w_reset <= '1';
         w_valid <= '0';
-        wait for clk_period;
+        wait for 5*clk_period;
         w_reset <= '0';
         w_valid <= '1';
-        wait for clk_period;
         w_pixel_top <= img_block0(0,0) & img_block0(0,1) & img_block0(0,2);
         w_pixel_mid <= img_block0(1,0) & img_block0(1,1) & img_block0(1,2);
         w_pixel_bot <= img_block0(2,0) & img_block0(2,1) & img_block0(2,2);
+        wait for clk_period;
+        w_valid <= '0';
         wait for 5*clk_period;
 
         -----------------------------------------------
         -- test image block 1
         -----------------------------------------------
-        wait for 5*clk_period;
+
         w_reset <= '1';
         w_valid <= '0';
-        wait for clk_period;
+        wait for 5*clk_period;
         w_reset <= '0';
-        w_valid <= '1';
-        wait for clk_period;
+        w_valid <= '1'; 
         w_pixel_top <= img_block1(0,0) & img_block1(0,1) & img_block1(0,2);
         w_pixel_mid <= img_block1(1,0) & img_block1(1,1) & img_block1(1,2);
         w_pixel_bot <= img_block1(2,0) & img_block1(2,1) & img_block1(2,2);
+        wait for clk_period;
+        w_valid <= '0';
         wait for 5*clk_period;
 
         -----------------------------------------------
         -- test image block 2
         -----------------------------------------------
-        wait for 5*clk_period;
         w_reset <= '1';
         w_valid <= '0';
-        wait for clk_period;
+        wait for 5*clk_period;
         w_reset <= '0';
         w_valid <= '1';
-        wait for clk_period;
         w_pixel_top <= img_block2(0,0) & img_block2(0,1) & img_block2(0,2);
         w_pixel_mid <= img_block2(1,0) & img_block2(1,1) & img_block2(1,2);
         w_pixel_bot <= img_block2(2,0) & img_block2(2,1) & img_block2(2,2);
+        wait for clk_period;
+        w_valid <= '0';
         wait for 5*clk_period;
 
         -----------------------------------------------
         -- test image block 3
         -----------------------------------------------
-        wait for 5*clk_period;
         w_reset <= '1';
         w_valid <= '0';
-        wait for clk_period;
+        wait for 5*clk_period;
         w_reset <= '0';
         w_valid <= '1';
-        wait for clk_period;
         w_pixel_top <= img_block3(0,0) & img_block3(0,1) & img_block3(0,2);
         w_pixel_mid <= img_block3(1,0) & img_block3(1,1) & img_block3(1,2);
         w_pixel_bot <= img_block3(2,0) & img_block3(2,1) & img_block3(2,2);
+        wait for clk_period;
+        w_valid <= '0';
         wait for 5*clk_period;
 
         -----------------------------------------------
         -- test image block 4
         -----------------------------------------------
-        wait for 5*clk_period;
         w_reset <= '1';
         w_valid <= '0';
-        wait for clk_period;
+        wait for 5*clk_period;
         w_reset <= '0';
         w_valid <= '1';
-        wait for clk_period;
         w_pixel_top <= img_block4(0,0) & img_block4(0,1) & img_block4(0,2);
         w_pixel_mid <= img_block4(1,0) & img_block4(1,1) & img_block4(1,2);
         w_pixel_bot <= img_block4(2,0) & img_block4(2,1) & img_block4(2,2);
+        wait for clk_period;
+        w_valid <= '0';
         wait for 5*clk_period;
 
         -----------------------------------------------
         -- test image block 5
         -----------------------------------------------
-        wait for 5*clk_period;
         w_reset <= '1';
         w_valid <= '0';
-        wait for clk_period;
+        wait for 5*clk_period;
         w_reset <= '0';
         w_valid <= '1';
-        wait for clk_period;
         w_pixel_top <= img_block5(0,0) & img_block5(0,1) & img_block5(0,2);
         w_pixel_mid <= img_block5(1,0) & img_block5(1,1) & img_block5(1,2);
         w_pixel_bot <= img_block5(2,0) & img_block5(2,1) & img_block5(2,2);
+        wait for clk_period;
+        w_valid <= '0';
         wait for 5*clk_period;
 
         -----------------------------------------------
         -- test image block 6
         -----------------------------------------------
-        wait for 5*clk_period;
         w_reset <= '1';
         w_valid <= '0';
-        wait for clk_period;
+        wait for 5*clk_period;
         w_reset <= '0';
         w_valid <= '1';
-        wait for clk_period;
         w_pixel_top <= img_block6(0,0) & img_block6(0,1) & img_block6(0,2);
         w_pixel_mid <= img_block6(1,0) & img_block6(1,1) & img_block6(1,2);
         w_pixel_bot <= img_block6(2,0) & img_block6(2,1) & img_block6(2,2);
+        wait for clk_period;
+        w_valid <= '0';
         wait for 5*clk_period;
 
         -----------------------------------------------
         -- test image block 7
         -----------------------------------------------
-        wait for 5*clk_period;
         w_reset <= '1';
         w_valid <= '0';
-        wait for clk_period;
+        wait for 5*clk_period;
         w_reset <= '0';
         w_valid <= '1';
-        wait for clk_period;
         w_pixel_top <= img_block7(0,0) & img_block7(0,1) & img_block7(0,2);
         w_pixel_mid <= img_block7(1,0) & img_block7(1,1) & img_block7(1,2);
         w_pixel_bot <= img_block7(2,0) & img_block7(2,1) & img_block7(2,2);
+        wait for clk_period;
+        w_valid <= '0';
         wait for 5*clk_period;
 
         -----------------------------------------------
         -- test image block 8
         -----------------------------------------------
-        wait for 5*clk_period;
         w_reset <= '1';
         w_valid <= '0';
-        wait for clk_period;
+        wait for 5*clk_period;
         w_reset <= '0';
         w_valid <= '1';
-        wait for clk_period;
         w_pixel_top <= img_block8(0,0) & img_block8(0,1) & img_block8(0,2);
         w_pixel_mid <= img_block8(1,0) & img_block8(1,1) & img_block8(1,2);
         w_pixel_bot <= img_block8(2,0) & img_block8(2,1) & img_block8(2,2);
+        wait for clk_period;
+        w_valid <= '0';
         wait for 5*clk_period;
 
         -----------------------------------------------
         -- test image block 9
         -----------------------------------------------
-        wait for 5*clk_period;
         w_reset <= '1';
         w_valid <= '0';
-        wait for clk_period;
+        wait for 5*clk_period;
         w_reset <= '0';
         w_valid <= '1';
-        wait for clk_period;
         w_pixel_top <= img_block9(0,0) & img_block9(0,1) & img_block9(0,2);
         w_pixel_mid <= img_block9(1,0) & img_block9(1,1) & img_block9(1,2);
         w_pixel_bot <= img_block9(2,0) & img_block9(2,1) & img_block9(2,2);
+        wait for clk_period;
+        w_valid <= '0';
         wait for 5*clk_period;
 
         -----------------------------------------------
         -- test image block 10
         -----------------------------------------------
-        wait for 5*clk_period;
         w_reset <= '1';
         w_valid <= '0';
-        wait for clk_period;
+        wait for 5*clk_period;
         w_reset <= '0';
         w_valid <= '1';
-        wait for clk_period;
         w_pixel_top <= img_block10(0,0) & img_block10(0,1) & img_block10(0,2);
         w_pixel_mid <= img_block10(1,0) & img_block10(1,1) & img_block10(1,2);
         w_pixel_bot <= img_block10(2,0) & img_block10(2,1) & img_block10(2,2);
+        wait for clk_period;
+        w_valid <= '0';
         wait for 5*clk_period;
 
     end process;
