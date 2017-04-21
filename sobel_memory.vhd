@@ -34,7 +34,7 @@ entity sobel_memory is
         o_bot: out std_logic_vector(23 downto 0);        -- bot array
         o_valid: out std_logic;                            -- can arrays export itself
         o_isFull: out std_logic;                        -- memory is full
-        o_busy: out std_logic                            --determine if busy        
+        o_busy: out std_logic                            --determine if busy
     );
 end entity;
 
@@ -42,19 +42,19 @@ architecture behavioral of sobel_memory is
 
     -----------------------------------------------
     -- list of signals and constants
-    -----------------------------------------------        
+    -----------------------------------------------
     --internal signals
     --create the image array (n by n) with each index being a byte
     type imagePixel is array (n-1 downto 0, n-1 downto 0) of std_logic_vector(7 downto 0);
     signal imageArray: imagePixel;
-    
-    --counter 
+
+    --counter
     --2**n is the max
     signal i_row_counter: integer;
     signal i_column_counter: integer;
     signal o_row_counter: integer;
     signal o_column_counter: integer;
-    
+
     signal wait_brah: std_logic := '0';
     signal all_zero: std_logic_vector(n-1 downto 0) := (others => '0');
     signal all_ones: std_logic_vector(n-1 downto 0) := (others => '1');
@@ -66,7 +66,7 @@ Begin
     release_the_hounds: process(i_request, wait_brah, i_clock)
     begin
         if(rising_edge(i_clock)) then
-            if(i_request = '1' and wait_brah = '0' and o_valid_counter < n*n) then
+            if(i_request = '1' and wait_brah = '0') then
                 o_top <= imageArray(o_row_counter - 1, o_column_counter - 1) & imageArray(o_row_counter - 1, o_column_counter) & imageArray(o_row_counter - 1, o_column_counter + 1);
                 o_mid <= imageArray(o_row_counter, o_column_counter - 1) & imageArray(o_row_counter, o_column_counter) & imageArray(o_row_counter, o_column_counter + 1);
                 o_bot <= imageArray(o_row_counter + 1, o_column_counter - 1) & imageArray(o_row_counter + 1, o_column_counter) & imageArray(o_row_counter + 1, o_column_counter + 1);
@@ -82,11 +82,11 @@ Begin
             end if;
         end if;
     end process;
-    
+
     -----------------------------------------------
     -- start spitting me some output
     -----------------------------------------------
-    can_export: process(i_column_counter, i_row_counter)
+    can_export: process (i_column_counter, i_row_counter)
     begin
         if(i_row_counter = 2) then
             if(i_column_counter >= 2)then
@@ -94,24 +94,24 @@ Begin
             else
                 o_valid <= '0';
             end if;
-        else if(i_row_counter > 2) then
+        elsif(i_row_counter > 2) then
             o_valid <= '1';
         else
             o_valid <= '0';
         end if;
     end process;
-    
+
     -----------------------------------------------
     -- fills up the array and reset
     -----------------------------------------------
-    fill_Array: Process(i_valid, i_clock, i_reset)
+    fill_Array: process (i_valid, i_clock, i_reset)
     begin
         if (i_reset = '1') then
             i_column_counter <= 0;
             i_row_counter <= 0;
             o_column_counter <= 1;
             o_row_counter <= 1;
-        else if(rising_edge(i_clock)) then
+        elsif(rising_edge(i_clock)) then
             if (i_valid = '1') then
                 imageArray(i_column_counter, i_row_counter) <= i_pixel;
                 if(i_column_counter = n-1 and i_column_counter < n) then
@@ -123,16 +123,16 @@ Begin
             end if;
         end if;
     end process;
-    
+
     -----------------------------------------------
     -- checks if the array is full
     -----------------------------------------------
-    check_Full: Process(i_column_counter, i_row_counter)
+    check_Full: process (i_column_counter, i_row_counter)
     begin
         if(i_column_counter = n-1 and i_row_counter = n-1) then
             o_isFull <= '1';
         else
             o_isFull <= '0';
-        end if;    
+        end if;
     end process;
 end behavioral;
