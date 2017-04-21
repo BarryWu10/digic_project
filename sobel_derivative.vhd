@@ -2,15 +2,12 @@ library ieee;
 
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
---use ieee.std_logic_signed.all;
---use ieee.std_logic_arith.all;
 
 --| Sobel Derivative Module i/o
 entity sobel_derivative is
     port(i_clock   : in std_logic;                      --| Clock Input
          i_enable  : in std_logic;                      --| Input Enable
          i_reset   : in std_logic;                      --| Reset Input
-         i_request : in std_logic;                      --| Request Derivatives
          --| 23 downto 16 => byte 0
          --  15 downto 8  => byte 1
          --  7  downto 0  => byte 2
@@ -49,7 +46,7 @@ begin
     o_D_NW_SE <= std_logic_vector(D_NW_SE);
     o_request <= w_request;
 
-    deriv : process (i_clock, i_enable, i_reset, i_request, i_top, i_mid, i_bot)
+    deriv : process (i_clock, i_enable, i_reset, i_top, i_mid, i_bot)
     begin
         if i_reset = '1' then
             D_NE_SW <= (others => '0');
@@ -101,11 +98,9 @@ begin
                         w_request <= '1';
                     end if;
                 when PROC =>
-                    if i_request = '1' then
-                        state <= HOLD;
-                        w_request <= '1';
-                        o_valid   <= '1';
-                    end if;
+                    state <= HOLD;
+                    w_request <= '1';
+                    o_valid   <= '1'; 
             end case;
         end if;
     end process;

@@ -28,7 +28,6 @@ architecture Structural of sobel_demo is
         port(i_clock   : in std_logic;                      --| Clock Input
              i_enable  : in std_logic;                      --| Input Enable
              i_reset   : in std_logic;                      --| Reset Input
-             i_request : in std_logic;                      --| Request Derivatives
              i_top     : in std_logic_vector (23 downto 0); --| Top pixel
                                                             --  neighbors
              i_mid     : in std_logic_vector (23 downto 0); --| Pixel with left
@@ -49,22 +48,18 @@ architecture Structural of sobel_demo is
 
     --| Sobel Eval Module i/o
     component sobel_eval is
-        port(i_clock   : in std_logic;                      --| Clock Input
-             i_enable  : in std_logic;                      --| Input Enable
-             i_reset   : in std_logic;                      --| Reset Input
+        port(i_enable  : in std_logic;                      --| Input Enable
              i_D_NE_SW : in std_logic_vector (11 downto 0);  --| NE SW Derivative
              i_D_N_S   : in std_logic_vector (11 downto 0);  --| N S Derivative
              i_D_E_W   : in std_logic_vector (11 downto 0);  --| E W Derivative
              i_D_NW_SE : in std_logic_vector (11 downto 0);  --| NW SE Derivative
-             o_ebusy   : out std_logic;                     --| Busy Signal
              o_dir     : out std_logic_vector (2 downto 0); --| Direction code
                                                             --  of pixel
              o_edge    : out std_logic;                     --| Edge indicator
                                                             --  signal
-             o_valid   : out std_logic;                     --| Valid output
+             o_valid   : out std_logic                      --| Valid output
                                                             --  edge signal
-             o_request : out std_logic                      --| Derivative
-            );                                              --  request signal
+            );
     end component;
 
     --| Module Interconnections and State types
@@ -78,10 +73,8 @@ architecture Structural of sobel_demo is
     signal w_mvalid  : std_logic;
     signal w_der_en  : std_logic;
     signal w_mem_req : std_logic;
-    signal w_der_req : std_logic;
     signal w_eval_en : std_logic;
     signal w_dbusy   : std_logic;
-    signal w_ebusy   : std_logic;
     signal w_dir     : std_logic_vector (2 downto 0);
     signal w_mode    : std_logic_vector (1 downto 0) := "10";
     signal w_top     : std_logic_vector (23 downto 0);
@@ -102,7 +95,6 @@ begin
         port map(i_clock         => w_clock,
                  i_enable        => w_valid,
                  i_reset         => w_reset,
-                 i_request       => w_der_req,
                  i_top           => w_top,
                  i_mid           => w_mid,
                  i_bot           => w_bot,
@@ -117,18 +109,14 @@ begin
 
     --| Evaluation Module Port Map
     eval : sobel_eval
-        port map(i_clock   => w_clock,
-                 i_enable  => w_eval_en,
-                 i_reset   => w_reset,
+        port map(i_enable  => w_eval_en,
                  i_D_NE_SW => w_D_NE_SW,
                  i_D_N_S   => w_D_N_S,
                  i_D_E_W   => w_D_E_W,
                  i_D_NW_SE => w_D_NW_SE,
-                 o_ebusy   => w_ebusy,
                  o_dir     => w_dir,
                  o_edge    => w_edge,
-                 o_valid   => w_ovalid,
-                 o_request => w_der_req
+                 o_valid   => w_ovalid
                 );
 
     --| Sobel i/o wire mapping
@@ -155,12 +143,12 @@ begin
                      state <= IDLE;
                      w_mode <="10";
                 when IDLE =>
-                    if (w_dbusy /= '0' and w_ebusy /= '0') then
+                    if (w_dbusy /= '0') then
                         state <= BUSY;
                         w_mode <= "11";
                     end if;
                 when BUSY =>
-                    if (w_dbusy = '0' and w_ebusy = '0') then
+                    if (w_dbusy = '0') then
                         state <= IDLE;
                         w_mode <= "10";
                     end if;
