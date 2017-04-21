@@ -100,7 +100,7 @@ begin
     --| Derivative Module Port Map
     derivative : sobel_derivative
         port map(i_clock         => w_clock,
-                 i_enable        => w_der_en,
+                 i_enable        => w_valid,
                  i_reset         => w_reset,
                  i_request       => w_der_req,
                  i_top           => w_top,
