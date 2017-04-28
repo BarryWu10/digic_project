@@ -17,7 +17,7 @@ entity sobel_eval is
                                                         --  signal
          o_valid   : out std_logic                     --| Valid output
                                                         --  edge signal
-        );                                              
+        );
 end sobel_eval;
 
 architecture Behavioral of sobel_eval is
@@ -51,13 +51,27 @@ begin
         derivs(2) := to_integer(w_D_E_W);
         derivs(3) := to_integer(w_D_NW_SE);
 
-        for I in 0 to 3 loop
-            if (max < abs(derivs(I))) then
-                pos := I;
-                max := abs(derivs(I));
-                perp := abs(derivs(3 - I));
-            end if;
-        end loop;
+        if (max < abs(derivs(0))) then
+           pos := 0;
+           max := abs(derivs(0));
+           perp := abs(derivs(3));
+        end if;
+        if (max < abs(derivs(1))) then
+           pos := 1;
+           max := abs(derivs(1));
+           perp := abs(derivs(2));
+        end if;
+        if (max < abs(derivs(2))) then
+           pos := 2;
+           max := abs(derivs(2));
+           perp := abs(derivs(1));
+        end if;
+        if (max < abs(derivs(3))) then
+           pos := 3;
+           max := abs(derivs(3));
+           perp := abs(derivs(0));
+        end if;
+
 
         if ((max + (perp/8)) < 80) then
             w_edge <= '0';
@@ -89,12 +103,12 @@ begin
                     else
                         w_dir <= "101"; --| SE
                     end if;
-                when others => 
+                when others =>
                     null;
             end case;
         end if;
     max  := 0;
     pos  := 0;
-    perp :=0;   
+    perp :=0;
     end process;
 end Behavioral;

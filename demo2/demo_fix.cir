@@ -1,0 +1,141 @@
+* Circuit File
+
+*** Includes
+.LIB $ADK/technology/ic/models/tsmc018.mod
+.INCLUDE "/home/cxr3473/digicdesign/project/digic_project/demo2/sobel_demo/layout/sobel_demo.pex.netlist"
+*** Options
+.OPTION NOASCII
+.OPTION MODWL
+.OPTION ENGNOT
+.OPTION AEX
+.OPTION LIMPROBE=10000.0
+.OPTION DOTNODE
+.OPTION GRAMP=9
+
+*** INSTANCE
+X_PARASITIC O_MODE[1] I_RESET I_PIXEL_BOT[16] I_PIXEL_BOT[0]
++ I_PIXEL_TOP[15] I_PIXEL_MID[17] I_PIXEL_BOT[7] I_PIXEL_MID[7] I_PIXEL_BOT[2]
++ I_PIXEL_TOP[1] I_CLOCK I_PIXEL_MID[16] I_PIXEL_TOP[17] I_PIXEL_BOT[9] I_VALID
++ I_PIXEL_TOP[16] I_PIXEL_BOT[18] I_PIXEL_TOP[19] I_PIXEL_TOP[0] I_PIXEL_TOP[11]
++ I_PIXEL_MID[22] I_PIXEL_TOP[9] I_PIXEL_MID[0] I_PIXEL_BOT[3] I_PIXEL_MID[3]
++ I_PIXEL_MID[2] I_PIXEL_MID[18] I_PIXEL_TOP[3] I_PIXEL_BOT[14] I_PIXEL_BOT[11]
++ I_PIXEL_BOT[6] O_MODE[0] I_PIXEL_BOT[4] I_PIXEL_TOP[21] I_PIXEL_BOT[19]
++ I_PIXEL_MID[4] I_PIXEL_BOT[13] I_PIXEL_BOT[12] I_PIXEL_TOP[4] I_PIXEL_TOP[5]
++ I_PIXEL_MID[20] I_PIXEL_BOT[20] I_PIXEL_BOT[21] I_PIXEL_MID[5] I_PIXEL_BOT[15]
++ I_PIXEL_TOP[7] I_PIXEL_TOP[20] I_PIXEL_MID[23] I_PIXEL_TOP[12] I_PIXEL_TOP[13]
++ O_DIR[0] I_PIXEL_BOT[1] I_PIXEL_BOT[8] I_PIXEL_TOP[8] I_PIXEL_TOP[18]
++ I_PIXEL_MID[1] I_PIXEL_BOT[17] I_PIXEL_TOP[2] O_DIR[2] O_VALID O_DIR[1] O_EDGE
++ I_PIXEL_MID[21] I_PIXEL_MID[19] I_PIXEL_TOP[22] I_PIXEL_BOT[5] I_PIXEL_MID[6]
++ I_PIXEL_BOT[22] I_PIXEL_BOT[10] I_PIXEL_TOP[6] I_PIXEL_TOP[23] I_PIXEL_TOP[14]
++ I_PIXEL_BOT[23] I_PIXEL_TOP[10] VDD GND SOBEL_DEMO
+
+.CONNECT GND 0
+
+* Parasitic Capacitances
+C1 O_DIR[0] 0 120F
+C2 O_DIR[1] 0 120F
+C3 O_DIR[2] 0 120F
+C4 O_MODE[0] 0 120F
+C5 O_MODE[1] 0 120F
+C6 O_VALID   0 120F
+C7 O_EDGE    0 120F
+
+
+* - Analysis Setup - DC
+*.DC VFORCE__A 0 1.8 .01
+*.DC VFORCE__B 0 1.8 .01
+*.DC VFORCE__C 0 1.8 .01
+*.DC VFORCE__D 0 1.8 .01
+
+* - Analysis Setup - Tran
+.TRAN 0.1 1260n 0
+
+*-----------------------------------------
+* Set Buses
+*-----------------------------------------
+.SETBUS TOP I_PIXEL_TOP[0] I_PIXEL_TOP[1] I_PIXEL_TOP[2] I_PIXEL_TOP[3] I_PIXEL_TOP[4] I_PIXEL_TOP[5] I_PIXEL_TOP[6] I_PIXEL_TOP[7] I_PIXEL_TOP[8] I_PIXEL_TOP[9] I_PIXEL_TOP[10] I_PIXEL_TOP[11] I_PIXEL_TOP[12] I_PIXEL_TOP[13] I_PIXEL_TOP[14] I_PIXEL_TOP[15] I_PIXEL_TOP[16] I_PIXEL_TOP[17] I_PIXEL_TOP[18] I_PIXEL_TOP[19] I_PIXEL_TOP[20] I_PIXEL_TOP[21] I_PIXEL_TOP[22] I_PIXEL_TOP[23]
+
+.SETBUS MID I_PIXEL_MID[0] I_PIXEL_MID[1] I_PIXEL_MID[2] I_PIXEL_MID[3] I_PIXEL_MID[4] I_PIXEL_MID[5] I_PIXEL_MID[6] I_PIXEL_MID[7] I_PIXEL_MID[8] I_PIXEL_MID[9] I_PIXEL_MID[10] I_PIXEL_MID[11] I_PIXEL_MID[12] I_PIXEL_MID[13] I_PIXEL_MID[14] I_PIXEL_MID[15] I_PIXEL_MID[16] I_PIXEL_MID[17] I_PIXEL_MID[18] I_PIXEL_MID[19] I_PIXEL_MID[20] I_PIXEL_MID[21] I_PIXEL_MID[22] I_PIXEL_MID[23]
+
+.SETBUS BOT I_PIXEL_BOT[0] I_PIXEL_BOT[1] I_PIXEL_BOT[2] I_PIXEL_BOT[3] I_PIXEL_BOT[4] I_PIXEL_BOT[5] I_PIXEL_BOT[6] I_PIXEL_BOT[7] I_PIXEL_BOT[8] I_PIXEL_BOT[9] I_PIXEL_BOT[10] I_PIXEL_BOT[11] I_PIXEL_BOT[12] I_PIXEL_BOT[13] I_PIXEL_BOT[14] I_PIXEL_BOT[15] I_PIXEL_BOT[16] I_PIXEL_BOT[17] I_PIXEL_BOT[18] I_PIXEL_BOT[19] I_PIXEL_BOT[20] I_PIXEL_BOT[21] I_PIXEL_BOT[22] I_PIXEL_BOT[23]
+
+.SETBUS DIR O_DIR[0] O_DIR[1] O_DIR[2]
+
+.SETBUS MODE O_MODE[0] O_MODE[1]
+
+*------------------------------------------
+* Sig Buses
+*------------------------------------------
+.SIGBUS TOP VHI=1.62 VLO=0 TRISE=0.2n TFALL=0.2n BASE=HEXA 0 000000 50n 00FFFF 160n 0000FF 270n FF0000 380n 000000 490n FF0000 600n 000000 710n FFFFFF 820n FFFF00 930n 00FF00 1040n 000000 1150n 000000
+.SIGBUS MID VHI=1.62 VLO=0 TRISE=0.2n TFALL=0.2n BASE=HEXA 0 000000 50n 0000FF 160n 0000FF 270n 00FF00 380n FF0000 490n FF0000 600n FFFFFF 710n 000000 820n FF0000 930n FF00FF 1040n 000000 1150n 0000FF
+.SIGBUS BOT VHI=1.62 VLO=0 TRISE=0.2n TFALL=0.2n BASE=HEXA 0 000000 50n 000000 160n 0000FF 270n 0000FF 380n FFFF00 490n FF0000 600n 000000 710n 000000 820n 000000 930n 00FF00 1040n FFFFFF 1150n 00FFFF
+*.SIGBUS CONTROL1 VHI = 1.8 VLO = 0 TRISE=0.2n TFALL=0.2n BASE=BIN 0 0 40n 1 80n 0 120n 1 160n 0 240n 1 280n 0 320n 1 360n 0 400n 1
+*.SIGBUS CONTROL1 VHI = 1.8 VLO = 0 TRISE=0.2n TFALL=0.2n BASE=BIN 0 0 80n 1 160n 0 240n 1 320n 0 400n 1
+
+*0 0000 80n FFFF 160n FFFF 240n 0001 320n 0000 400n ABCD
+*0 0000 80n FFFF 160n 0001 240n FFFF 320n 0001 400n 89EF
+*------------------------------------------
+* Force
+*------------------------------------------
+VForce__I_CLOCK I_CLOCK 0 PULSE(0 1.62 5n 0.1n 0.1n 5n 10n)
+VForce__I_RESET I_RESET 0 PULSE(0 1.62 0.1n 0.1n 0.1n 50n 110n)
+VForce__I_VALID I_VALID 0 PULSE(0 1.62 50n 0.1n 0.1n 10n 110n)
+VForce__VDD VDD 0 DC 1.62
+
+*------------------------------------------
+* Global Outputs
+*------------------------------------------
+.PROBE I V SG
+
+* --- Temperature
+*.TEMP 70
+.TEMP 125
+
+* --- Waveform Outputs
+*.PLOT DC V(VOUT)
+
+* --- Measure Power
+.measure tran Static_low_pwr AVG power
+.measure tran Static_high_pwr AVG power
+.measure tran Dynamic_pwr MAX power
+
+
+.MEASURE tran static_power_output_high AVG power from=.1ns to=5ns
+.MEASURE tran static_power_output_high AVG power from=10ns to=15ns
+.MEASURE tran static_power_output_high AVG power from=20ns to=25ns
+.MEASURE tran static_power_output_high AVG power from=30ns to=35ns
+.MEASURE tran static_power_output_high AVG power from=35ns to=40ns
+.MEASURE tran static_power_output_high AVG power from=40ns to=45ns
+.MEASURE tran static_power_output_high AVG power from=45ns to=50ns
+.MEASURE tran static_power_output_high AVG power from=50ns to=100ns
+.MEASURE tran static_power_output_high AVG power from=100ns to=200ns
+.MEASURE tran static_power_output_high AVG power from=200ns to=300ns
+.MEASURE tran static_power_output_high AVG power from=300ns to=400ns
+.MEASURE tran static_power_output_high AVG power from=400ns to=500ns
+.MEASURE tran static_power_output_high AVG power from=500ns to=1000ns
+
+
+.MEASURE tran inst MAX power from=.1ns to=5ns
+.MEASURE tran inst MAX power from=10ns to=15ns
+.MEASURE tran inst MAX power from=20ns to=25ns
+.MEASURE tran inst MAX power from=30ns to=35ns
+.MEASURE tran inst MAX power from=35ns to=40ns
+.MEASURE tran inst MAX power from=40ns to=45ns
+.MEASURE tran inst MAX power from=45ns to=50ns
+.MEASURE tran inst MAX power from=50ns to=100ns
+.MEASURE tran inst MAX power from=100ns to=200ns
+.MEASURE tran inst MAX power from=200ns to=300ns
+.MEASURE tran inst MAX power from=300ns to=400ns
+.MEASURE tran inst MAX power from=400ns to=500ns
+.MEASURE tran inst MAX power from=500ns to=1000ns
+
+
+.PLOTBUS TOP
+.PLOTBUS MID
+.PLOTBUS BOT
+.PLOTBUS DIR
+.PLOTBUS MODE
+
+.PLOT TRAN v(I_VALID) V(I_RESET) V(O_VALID) V(I_CLOCK) V(O_EDGE)
+
+.end

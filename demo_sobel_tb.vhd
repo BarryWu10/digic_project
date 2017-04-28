@@ -277,6 +277,9 @@ Begin
         -----------------------------------------------
         -- test image block 0
         -----------------------------------------------
+        w_pixel_top <= (others => '0');
+        w_pixel_mid <= (others => '0');
+        w_pixel_bot <= (others => '0');
 
         w_reset <= '1';
         w_valid <= '0';

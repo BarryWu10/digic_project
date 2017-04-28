@@ -87,9 +87,6 @@ architecture Structural of sobel_demo is
 
 begin
 
-
-
-
     --| Derivative Module Port Map
     derivative : sobel_derivative
         port map(i_clock         => w_clock,
