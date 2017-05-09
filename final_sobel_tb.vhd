@@ -41,7 +41,7 @@ architecture behavioral of sobel_demo_tb is
     signal w_pixel_mid : std_logic_vector (23 downto 0);
     signal w_pixel_bot : std_logic_vector (23 downto 0);
     signal w_reset: std_logic := '0';
- 
+
     signal w_edge   : std_logic;
     signal w_ovalid : std_logic;
     signal w_dir    : std_logic_vector (2 downto 0);
@@ -120,7 +120,7 @@ Begin
 
     begin
         -----------------------------------------------
-        -- test image block 0
+        -- test image 1
         -----------------------------------------------
         w_pixel_top <= (others => '0');
         w_pixel_mid <= (others => '0');
@@ -155,7 +155,7 @@ Begin
                 wait for clk_period;
                 if (w_ovalid = '1' and w_edge = '1') then
                     write(outputLn, string'("255 "));
-                else 
+                else
                     write(outputLn, string'("0 "));
                 end if;
                 wait for 4*clk_period;
@@ -163,7 +163,134 @@ Begin
             end loop;
             writeLine(outputFile, outputLn);
         end loop;
+        file_close(inputFile);
+        file_close(outPutFile);
+        -----------------------------------------------
+        -- test image 2
+        -----------------------------------------------
+        lcv := 0;
+        file_open(inputFile, "../content/enforced2/611950-CMPE63001.2161/test2.txt", read_mode);                            --reads a line
+        file_open(outPutFile, "./result_file_2.pgm", write_mode);
+        while not endfile(inputFile) loop                            --while we are not at the end of the file
+            readline(inputFile, inputLn);                        --reads a line, pray to Xenu that its 256 pixels
+            for index in 0 to 255 loop
+                read(inputLn, vPixel);                            --read pixel
+                imageArray(lcv, index) <= std_logic_vector(to_unsigned(vPixel, 8));                    --add to array
+            end loop;
+            lcv := lcv + 1;                                            --increment lcv by 1, for next row
+        end loop;
+        --humanely shove inside the sobel
+        write(outputLn, string'("P2 254 254 255"));
+        writeLine(outputFile, outputLn);
+        for row in 1 to 254 loop
+            for column in 1 to 254 loop
+                w_reset <= '1';
+                w_valid <= '0';
+                wait for 5*clk_period;
+                w_reset <= '0';
+                w_valid <= '1';
+                w_pixel_top <= imageArray(row-1, column-1) & imageArray(row-1, column) & imageArray(row-1, column+1);
+                w_pixel_mid <= imageArray(row,   column-1) & imageArray(row,   column) & imageArray(row,   column+1);
+                w_pixel_bot <= imageArray(row+1, column-1) & imageArray(row+1, column) & imageArray(row+1, column+1);
+                wait for clk_period;
+                w_valid <= '0';
+                wait for clk_period;
+                if (w_ovalid = '1' and w_edge = '1') then
+                    write(outputLn, string'("255 "));
+                else
+                    write(outputLn, string'("0 "));
+                end if;
+                wait for 4*clk_period;
 
+            end loop;
+            writeLine(outputFile, outputLn);
+        end loop;
+        file_close(inputFile);
+        file_close(outPutFile);
+        -----------------------------------------------
+        -- test image 3
+        -----------------------------------------------
+        lcv := 0;
+        file_open(inputFile, "../content/enforced2/611950-CMPE63001.2161/test3.txt", read_mode);                            --reads a line
+        file_open(outPutFile, "./result_file_3.pgm", write_mode);
+        while not endfile(inputFile) loop                            --while we are not at the end of the file
+            readline(inputFile, inputLn);                        --reads a line, pray to Xenu that its 256 pixels
+            for index in 0 to 255 loop
+                read(inputLn, vPixel);                            --read pixel
+                imageArray(lcv, index) <= std_logic_vector(to_unsigned(vPixel, 8));                    --add to array
+            end loop;
+            lcv := lcv + 1;                                            --increment lcv by 1, for next row
+        end loop;
+        --humanely shove inside the sobel
+        write(outputLn, string'("P2 254 254 255"));
+        writeLine(outputFile, outputLn);
+        for row in 1 to 254 loop
+            for column in 1 to 254 loop
+                w_reset <= '1';
+                w_valid <= '0';
+                wait for 5*clk_period;
+                w_reset <= '0';
+                w_valid <= '1';
+                w_pixel_top <= imageArray(row-1, column-1) & imageArray(row-1, column) & imageArray(row-1, column+1);
+                w_pixel_mid <= imageArray(row,   column-1) & imageArray(row,   column) & imageArray(row,   column+1);
+                w_pixel_bot <= imageArray(row+1, column-1) & imageArray(row+1, column) & imageArray(row+1, column+1);
+                wait for clk_period;
+                w_valid <= '0';
+                wait for clk_period;
+                if (w_ovalid = '1' and w_edge = '1') then
+                    write(outputLn, string'("255 "));
+                else
+                    write(outputLn, string'("0 "));
+                end if;
+                wait for 4*clk_period;
+
+            end loop;
+            writeLine(outputFile, outputLn);
+        end loop;
+        file_close(inputFile);
+        file_close(outPutFile);
+        -----------------------------------------------
+        -- test image 4
+        -----------------------------------------------
+        lcv := 0;
+        file_open(inputFile, "../content/enforced2/611950-CMPE63001.2161/test4.txt", read_mode);                            --reads a line
+        file_open(outPutFile, "./result_file_4.pgm", write_mode);
+        while not endfile(inputFile) loop                            --while we are not at the end of the file
+            readline(inputFile, inputLn);                        --reads a line, pray to Xenu that its 256 pixels
+            for index in 0 to 255 loop
+                read(inputLn, vPixel);                            --read pixel
+                imageArray(lcv, index) <= std_logic_vector(to_unsigned(vPixel, 8));                    --add to array
+            end loop;
+            lcv := lcv + 1;                                            --increment lcv by 1, for next row
+        end loop;
+        --humanely shove inside the sobel
+        write(outputLn, string'("P2 254 254 255"));
+        writeLine(outputFile, outputLn);
+        for row in 1 to 254 loop
+            for column in 1 to 254 loop
+                w_reset <= '1';
+                w_valid <= '0';
+                wait for 5*clk_period;
+                w_reset <= '0';
+                w_valid <= '1';
+                w_pixel_top <= imageArray(row-1, column-1) & imageArray(row-1, column) & imageArray(row-1, column+1);
+                w_pixel_mid <= imageArray(row,   column-1) & imageArray(row,   column) & imageArray(row,   column+1);
+                w_pixel_bot <= imageArray(row+1, column-1) & imageArray(row+1, column) & imageArray(row+1, column+1);
+                wait for clk_period;
+                w_valid <= '0';
+                wait for clk_period;
+                if (w_ovalid = '1' and w_edge = '1') then
+                    write(outputLn, string'("255 "));
+                else
+                    write(outputLn, string'("0 "));
+                end if;
+                wait for 4*clk_period;
+
+            end loop;
+            writeLine(outputFile, outputLn);
+        end loop;
+        file_close(inputFile);
+        file_close(outPutFile);
     end process;
 
 end;
