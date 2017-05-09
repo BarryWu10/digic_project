@@ -39,7 +39,7 @@ begin
     w_D_E_W   <= signed(i_D_E_W);
     w_D_NW_SE <= signed(i_D_NW_SE);
 
-    eval : process (w_D_NW_SE, w_D_N_S, w_D_E_W, w_D_NW_SE)
+    eval : process (w_D_NE_SW, w_D_N_S, w_D_E_W, w_D_NW_SE)
     variable derivs  : array_int(0 to 3);
     variable max     : integer := 0;
     variable pos     : integer := 0;
