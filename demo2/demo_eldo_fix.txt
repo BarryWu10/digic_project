@@ -1,0 +1,298 @@
+
+Running eldo on eng-2500-18
+with Eldo libraries :
+/tools/mentor/ams/2013.12.2d/aol/lib/libeldoudm_64.so
+/tools/mentor/ams/2013.12.2d/aol/lib/libeldomos1_64.so
+/tools/mentor/ams/2013.12.2d/aol/lib/libeldoekv_64.so
+/tools/mentor/ams/2013.12.2d/aol/lib/libeldomosp9_64.so
+/tools/mentor/ams/2013.12.2d/aol/lib/libeldocsem_64.so
+/tools/mentor/ams/2013.12.2d/aol/lib/libeldomos2_64.so
+/tools/mentor/ams/2013.12.2d/aol/lib/libeldomos3_64.so
+/tools/mentor/ams/2013.12.2d/aol/lib/libeldobip_64.so
+/tools/mentor/ams/2013.12.2d/aol/lib/libeldodio_64.so
+/tools/mentor/ams/2013.12.2d/aol/lib/libeldojfet_64.so
+/tools/mentor/ams/2013.12.2d/aol/lib/libeldosoi_64.so
+/tools/mentor/ams/2013.12.2d/aol/lib/libeldomos4_64.so
+/tools/mentor/ams/2013.12.2d/aol/lib/libeldoasitft_64.so
+/tools/mentor/ams/2013.12.2d/aol/lib/libeldohisim_64.so
+/tools/mentor/ams/2013.12.2d/aol/lib/libeldospmod_64.so
+/tools/mentor/ams/2013.12.2d/aol/lib/libeldopsp_64.so
+/tools/mentor/ams/2013.12.2d/aol/lib/libeldomosvar_64.so
+/tools/mentor/ams/2013.12.2d/aol/lib/libeldolegtft_64.so
+/tools/mentor/ams/2013.12.2d/aol/lib/libeldomoto_64.so
+/tools/mentor/ams/2013.12.2d/aol/lib/libeldost_64.so
+/tools/mentor/ams/2013.12.2d/aol/lib/libeldobnr_64.so
+/tools/mentor/ams/2013.12.2d/aol/lib/libeldorockw_64.so
+/tools/mentor/ams/2013.12.2d/aol/lib/libeldopubhicum_64.so
+/tools/mentor/ams/2013.12.2d/aol/lib/libeldotftsh_64.so
+/tools/mentor/ams/2013.12.2d/aol/lib/libeldobta_64.so
+/tools/mentor/ams/2013.12.2d/aol/lib/libeldofas_64.so
+/tools/mentor/ams/2013.12.2d/aol/lib/libeldofascm_64.so
+/tools/mentor/ams/2013.12.2d/aol/lib/libeldosdsim_64.so
+/tools/mentor/ams/2013.12.2d/aol/lib/libeldowire_64.so
+/tools/mentor/ams/2013.12.2d/aol/lib/libogr_64.so loaded.
+
+
+
+Copyright 1988 Mentor Graphics Corporation
+All Rights Reserved
+
+THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY
+INFORMATION WHICH ARE THE PROPERTY OF MENTOR
+GRAPHICS CORPORATION OR ITS LICENSORS AND IS
+SUBJECT TO LICENSE TERMS.
+
+
+
+***** SYSTEM INFORMATION ...
+
+*** User  : cxr3473@eng-2500-18
+*** OS    : Red Hat Enterprise Linux Server release 6.8 (Santiago) [VCO = aol]
+*** CPU   :
+    AMD A10-7850K APU with Radeon(TM) R7 Graphics  
+    Number of physical processors     : 1
+    Hyper-Threading Technology        : enabled
+    Number of cpu cores               : 2
+    Number of logical processors      : 4
+*** Freq  : 3700.000MHz
+*** Cache : 2048 KB
+*** MEM   : 15238728 kB
+*** Date  : Fri Apr 28 19:06:13 2017
+
+
+***** PRE-PROCESSING ...
+
+
+***** ANALYSIS ....
+
+
+***** 0  error(s). 
+***** 0  warning(s). 
+
+
+***** GENERATION ...
+
+Warning 87: Some X or device instances connected in parallel have been merged into a single instance.
++   This may cause some unexpected warning or error messages. See Eldo documentation for detail.
++   To prevent this merging, please use .option nocatmx .
+Warning 357: COMMAND .PROBE: The limit of 10000 display nodes has been reached.
++   Some nodes will not be sent to the output binary file.
++   This value can be overriden by .OPTION LIMPROBE = value.
+Warning 107:  NODE "I_PIXEL_MID[8]": Less than two connections.
+Warning 107:  NODE "I_PIXEL_MID[9]": Less than two connections.
+Warning 107:  NODE "I_PIXEL_MID[10]": Less than two connections.
+Warning  29: Such messages will not be displayed in future. Set .option MSGNODE = 0 to receive all such warnings.
+
+
+***** 0  error(s). 
+***** 11  warning(s). 
+
+
+INFORMATION ABOUT COMPILATION...
+
+
+Memory space allocated (MB):    652
+384038 elements
+237556 nodes
+76 input signals
+
+***> Parsing CPU TIME 0h 0mn 5s 330ms <***
+
+
+Eldo VERSION : ELDO 12.2d (64 bits) Mon Dec 16 16:33:30 GMT 2013
+
+*** DATE: 28-Apr-2017 19:06:22
+
+*** TITLE: * Circuit File
+
+TEMPERATURE : 125.000000 degrees C
+
+Warning 357: COMMAND .PROBE: The limit of 10000 display nodes has been reached.
++   Some nodes will not be sent to the output binary file.
++   This value can be overriden by .OPTION LIMPROBE = value.
+
+Performing DC analysis...
+
+--> Partitioning circuit...
+
+
+--> Performing G ramping...
+---> G RAMPING: 0.000000%
+---> G RAMPING: 10.000000%
+---> G RAMPING: 20.000000%
+---> G RAMPING: 30.000000%
+
+--> Partitioning circuit...
+
+--> Partitioning circuit...
+** NO CONVERGENCE: G RAMP STOPPED
+
+***>CPU TIME 24mn 45s 490ms <***
+
+
+***>CPU TIME 24mn 47s 010ms <***
+
+
+
+--> Performing Simplified G ramping  ...
+---> Simplified G RAMPING  : 0.000000%
+---> Simplified G RAMPING  : 10.000000%
+---> Simplified G RAMPING  : 20.000000%
+** NO CONVERGENCE: Simplified G RAMP STOPPED
+
+***>CPU TIME 5mn 45s 430ms <***
+
+
+
+--> Performing Simplified DC ramping...
+---> Simplified DC RAMPING  : 0.000000%
+---> Simplified DC RAMPING  : 10.000000%
+---> Simplified DC RAMPING  : 20.000000%
+---> No convergence in Simplified DCRAMP 
+
+***>CPU TIME 2mn 15s 670ms <***
+
+
+
+--> Performing transient Ramping...
+Transient Ramping: First pass: 0%
+Transient Ramping: First pass: 10%
+Transient Ramping: First pass: 20%
+Transient Ramping: First pass: 30%
+Transient Ramping: First pass: 40%
+Transient Ramping: First pass: 50%
+Transient Ramping: First pass: 60%
+Transient Ramping: First pass: 70%
+Transient Ramping: second pass: 0%
+Transient Ramping: second pass: 10%
+Transient Ramping: second pass: 20%
+Transient Ramping: second pass: 30%
+Transient Ramping: second pass: 40%
+Transient Ramping: second pass: 50%
+Transient Ramping: second pass: 60%
+Transient Ramping: second pass: 70%
+Transient Ramping: second pass: 80%
+Transient Ramping: second pass: 90%
+Transient Ramping: second pass: 100%
+TRANSIENT RAMPING stopped: too many oscillations (10) detected
+Oscillation on X_PARASITIC.N_X615.7_X615.M3_D
+This limit can be overriden by .OPTION PSOSC=<value>
+
+--> Partitioning circuit...
+
+***>CPU TIME 4mn 52s 000ms <***
+
+
+***>CPU TIME 4mn 52s 480ms <***
+
+
+***> DC CPU TIME 37mn 52s 180ms <***
+
+DC:1 iterations FOR DC analysis
+
+   TOTAL POWER DISSIPATION:  1.1032U     WATTS
+
+
+DC convergence has achieved using:
+.option TRAMP
+
+Eldo NEWTON: VNTOL=1.000000e-06 RELTOL=6.111111e-04
+
+Connecting to JWDB server, please wait...
+connected to wdb server : -jwdbhost eng-2500-18 -jwdbport 36565
+
+Compute from 0.000000 Nano to 1.260000E+03 Nano
+................................................
+Simulation progress                : 10% (t = 126.1463 N)
+Elapsed CPU time                   :  0h 15mn 58s 830   ( 0h 15mn 58s 830)
+CPU Usage                          :  99%               ( 99%)
+................................................
+Simulation progress                : 20% (t = 252.4768 N)
+Elapsed CPU time                   :  0h 12mn 56s 450   ( 0h 28mn 55s 280)
+CPU Usage                          :  99%               ( 99%)
+................................................
+Simulation progress                : 30% (t = 378.5286 N)
+Elapsed CPU time                   :  0h 11mn 18s 230   ( 0h 40mn 13s 510)
+CPU Usage                          :  98%               ( 98%)
+................................................
+Simulation progress                : 40% (t = 504.1250 N)
+Elapsed CPU time                   :  0h 15mn 16s 250   ( 0h 55mn 29s 760)
+CPU Usage                          :  99%               ( 98%)
+................................................
+Simulation progress                : 50% (t = 630.1000 N)
+Elapsed CPU time                   :  0h 12mn 17s 890   ( 1h  7mn 47s 650)
+CPU Usage                          :  99%               ( 98%)
+................................................
+Simulation progress                : 60% (t = 756.3311 N)
+Elapsed CPU time                   :  0h 11mn 47s 210   ( 1h 19mn 34s 860)
+CPU Usage                          :  99%               ( 98%)
+................................................
+Simulation progress                : 70% (t = 882.0130 N)
+Elapsed CPU time                   :  0h 11mn 38s 220   ( 1h 31mn 13s  80)
+CPU Usage                          :  99%               ( 98%)
+................................................
+Simulation progress                : 80% (t = 1.0086 U)
+Elapsed CPU time                   :  0h 11mn 58s 310   ( 1h 43mn 11s 390)
+CPU Usage                          :  99%               ( 99%)
+................................................
+Simulation progress                : 90% (t = 1.1343 U)
+Elapsed CPU time                   :  0h 12mn 24s 970   ( 1h 55mn 36s 360)
+CPU Usage                          :  99%               ( 99%)
+................................................
+Simulation progress                : 100% (t = 1.2600 U)
+Elapsed CPU time                   :  0h 12mn 12s 400   ( 2h  7mn 48s 760)
+CPU Usage                          :  99%               ( 99%)
+
+
+***>Current simulation completed
+
+
+ STATIC_LOW_PWR            =  1.5167M       
+ STATIC_HIGH_PWR           =  1.5167M       
+ DYNAMIC_PWR               =  34.1897M      
+ STATIC_POWER_OUTPUT_HIGH  =  6.9040M       
+ STATIC_POWER_OUTPUT_HIGH  =  883.9364U     
+ STATIC_POWER_OUTPUT_HIGH  =  826.9685U     
+ STATIC_POWER_OUTPUT_HIGH  =  827.4734U     
+ STATIC_POWER_OUTPUT_HIGH  =  823.2083U     
+ STATIC_POWER_OUTPUT_HIGH  =  827.1466U     
+ STATIC_POWER_OUTPUT_HIGH  =  1.1926M       
+ STATIC_POWER_OUTPUT_HIGH  =  1.9159M       
+ STATIC_POWER_OUTPUT_HIGH  =  1.6501M       
+ STATIC_POWER_OUTPUT_HIGH  =  1.6463M       
+ STATIC_POWER_OUTPUT_HIGH  =  1.5497M       
+ STATIC_POWER_OUTPUT_HIGH  =  1.5122M       
+ STATIC_POWER_OUTPUT_HIGH  =  1.4381M       
+ INST                      =  17.0333M      
+ INST                      =  12.9177M      
+ INST                      =  14.8661M      
+ INST                      =  14.9478M      
+ INST                      =  16.1945M      
+ INST                      =  14.9514M      
+ INST                      =  24.8882M      
+ INST                      =  30.6306M      
+ INST                      =  32.2004M      
+ INST                      =  31.5858M      
+ INST                      =  30.1892M      
+ INST                      =  30.0721M      
+ INST                      =  34.1897M      
+
+
+SIMULATION INFORMATION 
+memory size allocated in Mbytes   1405
+Latency: 0.000000%
+average number of newton iterations: 3.556289
+nb of components: 384038
+nb of nodes: 259924
+nb of MOS or BIP calls: 454263167
+Number of steps computed: 13781
+
+***>CPU TIME 2h 7mn 48s 810ms <***
+
+***>MESSAGE SUMMARY: 12 warnings
+
+***>GLOBAL CPU TIME 2h 45mn 51s 720ms <***
+
+
+***>GLOBAL ELAPSED TIME 2h 47mn 19s <***
+
